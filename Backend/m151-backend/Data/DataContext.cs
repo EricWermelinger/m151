@@ -12,6 +12,7 @@ namespace Students.Data
         public DbSet<GpxFile> GpxFiles { get; set; }
         public DbSet<GpxNode> GpxNodes { get; set; }
         public DbSet<Run> Runs { get; set; }
+        public DbSet<RunNote> RunNotes { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserData> UserData { get; set; }
     }
