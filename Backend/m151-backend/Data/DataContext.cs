@@ -14,6 +14,5 @@ namespace Students.Data
         public DbSet<Run> Runs { get; set; }
         public DbSet<RunNote> RunNotes { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<UserData> UserData { get; set; }
     }
 }
