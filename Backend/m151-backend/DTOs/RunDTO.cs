@@ -7,6 +7,7 @@
         public DateTime StartTime { get; set; }
         public decimal Duration { get; set; }
         public decimal Length { get; set; }
+        public decimal Altitude { get; set; }
         public Guid? GpxFileId { get; set; }
     }
 }
