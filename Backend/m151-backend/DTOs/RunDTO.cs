@@ -1,9 +1,8 @@
-﻿namespace m151_backend.Entities
+﻿namespace m151_backend.DTOs
 {
-    public class Run
+    public class RunDTO
     {
         public Guid Id { get; set; }
-        public Guid UserId { get; set; }
         public string Title { get; set; }
         public DateTime StartTime { get; set; }
         public decimal Duration { get; set; }

@@ -1,9 +1,7 @@
-﻿namespace m151_backend.Entities
+﻿namespace m151_backend.DTOs
 {
-    public class UserData
+    public class UserDTO
     {
-        public Guid Id { get; set; }
-        public Guid UserId { get; set; }
         public string? Firstname { get; set; }
         public string? Lastname { get; set; }
         public decimal? Weight { get; set; }
