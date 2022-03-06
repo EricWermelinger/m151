@@ -136,7 +136,7 @@ namespace m151_backend.Controllers
             run.Length = calculation.CalculateRouteDistance(points);
             run.StartTime = validNodes.First().Time;
 
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return Ok(new RunDTO
             {
