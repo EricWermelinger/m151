@@ -1,6 +1,7 @@
 global using Students.Data;
 global using Microsoft.EntityFrameworkCore;
 using System.Text;
+using m151_backend.Framework;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -15,6 +16,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 });
 
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddSwaggerGen(options => {
     options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
     {

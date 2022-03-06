@@ -13,22 +13,28 @@ namespace m151_backend.Controllers
     public class UserDataController : Controller
     {
         private readonly DataContext _context;
+        private readonly IUserService _userService;
         private ErrorhandlingM151<User> _errorHandling = new();
-        private AuthorizationM151 authorization = new();
 
-        public UserDataController(DataContext context)
+        public UserDataController(DataContext context, IUserService userService)
         {
             _context = context;
+            _userService = userService;
         }
 
         [HttpGet]
         public async Task<ActionResult<UserDTO>> GetUserData()
         {
-            Guid jwtUserId = authorization.JwtUserId();
+            Guid? jwtUserId = _userService.GetUserGuid();
+            if (jwtUserId == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
+
             var user = await _context.Users.FindAsync(jwtUserId);
             if (user == null)
             {
-                return BadRequest(_errorHandling.ErrorNotFound());
+                return BadRequest(_errorHandling.Unauthorized());
             }
 
             return Ok(new UserDTO
@@ -45,11 +51,16 @@ namespace m151_backend.Controllers
         [HttpPut]
         public async Task<ActionResult> UpdateUserData(UserDTO request)
         {
-            Guid jwtUserId = authorization.JwtUserId();
+            Guid? jwtUserId = _userService.GetUserGuid();
+            if (jwtUserId == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
+
             var user = await _context.Users.FindAsync(jwtUserId);
             if (user == null)
             {
-                return BadRequest(_errorHandling.ErrorNotFound());
+                return BadRequest(_errorHandling.Unauthorized());
             }
 
             if (request.Birthdate < new DateTime(1900, 1, 1) || request.Birthdate > DateTime.Today ||

@@ -10,7 +10,7 @@ namespace m151_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         private readonly DataContext _context;
