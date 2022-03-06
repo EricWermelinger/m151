@@ -10,6 +10,9 @@ namespace m151_backend.Framework
     {
         private const string TOKEN = "9D31AC86-3FA6-49CB-9226-564BF3D41AA9";
         private const int VALID_TIME = 3;
+        
+        // todo refresh Controller
+        // todo get JwtUserId
 
         public Guid JwtUserId()
         {

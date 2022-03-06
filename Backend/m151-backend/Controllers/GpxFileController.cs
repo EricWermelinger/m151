@@ -5,12 +5,14 @@ using m151_backend.Framework;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Routing.Constraints;
 
 namespace m151_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class GpxFileController : Controller
     {
         private readonly DataContext _context;
@@ -59,7 +61,6 @@ namespace m151_backend.Controllers
         [HttpPost]
         public async Task<ActionResult<RunDTO>> UploadGpxFile(string requestSerialized)
         {
-            // example: { "LengthMin":10,"LengthMax":20,"AltitudeMin":30,"AltitudeMax":40,"PointLatitude":1,"PointLongitude":2,"RadiuseFromPoint":3}
             GpxFileDTO? request = JsonSerializer.Deserialize<GpxFileDTO?>(requestSerialized);
             if (request == null)
             {

@@ -68,3 +68,8 @@ C:\src\m151\Backend\m151-backend\obj\Debug\net6.0\m151-backend.dll
 C:\src\m151\Backend\m151-backend\obj\Debug\net6.0\ref\m151-backend.dll
 C:\src\m151\Backend\m151-backend\obj\Debug\net6.0\m151-backend.pdb
 C:\src\m151\Backend\m151-backend\obj\Debug\net6.0\m151-backend.genruntimeconfig.cache
+C:\src\m151\Backend\m151-backend\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\src\m151\Backend\m151-backend\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\src\m151\Backend\m151-backend\bin\Debug\net6.0\Scrutor.dll
+C:\src\m151\Backend\m151-backend\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.dll
+C:\src\m151\Backend\m151-backend\bin\Debug\net6.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll

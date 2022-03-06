@@ -2,12 +2,14 @@
 using m151_backend.Entities;
 using m151_backend.ErrorHandling;
 using m151_backend.Framework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace m151_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserDataController : Controller
     {
         private readonly DataContext _context;
@@ -22,8 +24,6 @@ namespace m151_backend.Controllers
         [HttpGet]
         public async Task<ActionResult<UserDTO>> GetUserData()
         {
-            // todo validate jwtUserId and get it from token
-
             Guid jwtUserId = authorization.JwtUserId();
             var user = await _context.Users.FindAsync(jwtUserId);
             if (user == null)
