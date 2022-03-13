@@ -1,4 +1,5 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
+using System.Runtime.InteropServices;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using m151_backend.DTOs;
@@ -9,7 +10,7 @@ namespace m151_backend.Framework
     public class AuthorizationM151
     {
         private const string TOKEN = "9D31AC86-3FA6-49CB-9226-564BF3D41AA9";
-        private const int VALID_TIME = 3;
+        private const int VALID_TIME = 30;
         
         // todo refresh Controller
 
@@ -24,7 +25,7 @@ namespace m151_backend.Framework
 
             var credits = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
 
-            var token = new JwtSecurityToken(claims: claims, expires: DateTime.Now.AddMinutes(VALID_TIME),
+            var token = new JwtSecurityToken(claims: claims, expires: DateTime.UtcNow.AddSeconds(VALID_TIME),
                 signingCredentials: credits);
 
             return new TokenDTO

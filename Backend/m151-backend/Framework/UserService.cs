@@ -1,10 +1,12 @@
 ﻿using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
 
 namespace m151_backend.Framework
 {
     public class UserService : IUserService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private AuthorizationM151 _authorization = new();
 
         public UserService(IHttpContextAccessor httpContextAccessor)
         {
@@ -13,12 +15,12 @@ namespace m151_backend.Framework
 
         public Guid? GetUserGuid()
         {
-            string guid = null;
-            if (_httpContextAccessor.HttpContext != null)
+            if (_httpContextAccessor.HttpContext == null)
             {
-                guid = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name);
+                return null;
             }
 
+            string guid = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name);
             return guid != null ? Guid.Parse(guid) : null;
         }
     }
