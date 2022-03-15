@@ -2,27 +2,40 @@
 using m151_backend.Entities;
 using m151_backend.ErrorHandling;
 using m151_backend.Framework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace m151_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class NotesController : Controller
     {
         private readonly DataContext _context;
+        private readonly IUserService _userService;
         private ErrorhandlingM151<RunNote> _errorHandling = new();
-        private AuthorizationM151 authorization = new();
 
-        public NotesController(DataContext context)
+        public NotesController(DataContext context, IUserService userService)
         {
             _context = context;
+            _userService = userService;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<RunNoteDTO>>> GetNotes(Guid runId)
         {
-            Guid jwtUserId = authorization.JwtUserId();
+            Guid? jwtUserId = _userService.GetUserGuid();
+            if (jwtUserId == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
+
+            var user = await _context.Users.FindAsync(jwtUserId);
+            if (user == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
 
             var run = await _context.Runs.FindAsync(runId);
 
@@ -46,7 +59,17 @@ namespace m151_backend.Controllers
         [HttpPost]
         public async Task<ActionResult> UpdateNote(RunNoteDTO request)
         {
-            Guid jwtUserId = authorization.JwtUserId();
+            Guid? jwtUserId = _userService.GetUserGuid();
+            if (jwtUserId == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
+
+            var user = await _context.Users.FindAsync(jwtUserId);
+            if (user == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
 
             var existingNote = await _context.RunNotes.FindAsync(request.Id);
             var run = await _context.Runs.FindAsync(request.RunId);
@@ -77,7 +100,17 @@ namespace m151_backend.Controllers
         [HttpDelete]
         public async Task<ActionResult> DeleteNote(Guid noteId)
         {
-            Guid jwtUserId = authorization.JwtUserId();
+            Guid? jwtUserId = _userService.GetUserGuid();
+            if (jwtUserId == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
+
+            var user = await _context.Users.FindAsync(jwtUserId);
+            if (user == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
 
             var note = await _context.RunNotes.FindAsync(noteId);
             if (note == null)

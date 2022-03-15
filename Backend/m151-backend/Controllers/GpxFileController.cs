@@ -5,29 +5,42 @@ using m151_backend.Framework;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Routing.Constraints;
 
 namespace m151_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class GpxFileController : Controller
     {
         private readonly DataContext _context;
+        private readonly IUserService _userService;
         private ErrorhandlingM151<GpxFile> _errorHandling = new();
-        private AuthorizationM151 authorization = new();
         private ValidationM151 validation = new();
         private CalculationM151 calculation = new();
 
-        public GpxFileController(DataContext context)
+        public GpxFileController(DataContext context, IUserService userService)
         {
             _context = context;
+            _userService = userService;
         }
 
         [HttpGet]
         public async Task<ActionResult<GpxFileDTO>> GetDownloadGpxFile(Guid gpxFileId)
         {
-            Guid jwtUserId = authorization.JwtUserId();
+            Guid? jwtUserId = _userService.GetUserGuid();
+            if (jwtUserId == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
+
+            var user = await _context.Users.FindAsync(jwtUserId);
+            if (user == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
 
             var gpxFile = await _context.GpxFiles.FindAsync(gpxFileId);
             var run = await _context.Runs.Where(run => run.GpxFileId == gpxFileId && run.UserId == jwtUserId).FirstOrDefaultAsync();
@@ -57,20 +70,18 @@ namespace m151_backend.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<RunDTO>> UploadGpxFile(string requestSerialized)
+        public async Task<ActionResult<RunDTO>> UploadGpxFile(GpxFileDTO request)
         {
-            // example: { "LengthMin":10,"LengthMax":20,"AltitudeMin":30,"AltitudeMax":40,"PointLatitude":1,"PointLongitude":2,"RadiuseFromPoint":3}
-            GpxFileDTO? request = JsonSerializer.Deserialize<GpxFileDTO?>(requestSerialized);
-            if (request == null)
+            Guid? jwtUserId = _userService.GetUserGuid();
+            if (jwtUserId == null)
             {
-                return BadRequest(_errorHandling.ErrorNotFound());
+                return BadRequest(_errorHandling.Unauthorized());
             }
 
-            Guid jwtUserId = authorization.JwtUserId();
             var user = await _context.Users.FindAsync(jwtUserId);
             if (user == null)
             {
-                return BadRequest(_errorHandling.ErrorNotFound());
+                return BadRequest(_errorHandling.Unauthorized());
             }
 
             var run = await _context.Runs.FindAsync(request.RunId);
@@ -136,7 +147,7 @@ namespace m151_backend.Controllers
             run.Length = calculation.CalculateRouteDistance(points);
             run.StartTime = validNodes.First().Time;
 
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return Ok(new RunDTO
             {
@@ -153,7 +164,17 @@ namespace m151_backend.Controllers
         [HttpDelete]
         public async Task<ActionResult> DeleteGpxFile(Guid gpxFileId)
         {
-            Guid jwtUserId = authorization.JwtUserId();
+            Guid? jwtUserId = _userService.GetUserGuid();
+            if (jwtUserId == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
+
+            var user = await _context.Users.FindAsync(jwtUserId);
+            if (user == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
 
             var gpxFile = await _context.GpxFiles.FindAsync(gpxFileId);
             var run = await _context.Runs.Where(run => run.GpxFileId == gpxFileId && run.UserId == jwtUserId).FirstOrDefaultAsync();

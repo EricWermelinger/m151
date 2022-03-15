@@ -4,6 +4,7 @@ using m151_backend.DTOs;
 using m151_backend.Entities;
 using m151_backend.ErrorHandling;
 using m151_backend.Framework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace m151_backend.Controllers
@@ -11,6 +12,7 @@ namespace m151_backend.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class AllRunsController : Controller
     {
         private readonly DataContext _context;

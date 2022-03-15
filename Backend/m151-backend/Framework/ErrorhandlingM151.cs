@@ -11,5 +11,10 @@
         {
             return "The inserted value for " + typeof(T).Name + " are not valid.";
         }
+
+        public string Unauthorized()
+        {
+            return "JWT-Token is not valid";
+        }
     }
 }

@@ -2,27 +2,40 @@
 using m151_backend.Entities;
 using m151_backend.ErrorHandling;
 using m151_backend.Framework;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace m151_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class MyRunsController : Controller
     {
         private readonly DataContext _context;
+        private readonly IUserService _userService;
         private ErrorhandlingM151<Run> _errorHandling = new();
-        private AuthorizationM151 authorization = new();
 
-        public MyRunsController(DataContext context)
+        public MyRunsController(DataContext context, IUserService userService)
         {
             _context = context;
+            _userService = userService;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<RunDTO>>> GetMyRuns()
         {
-            Guid jwtUserId = authorization.JwtUserId();
+            Guid? jwtUserId = _userService.GetUserGuid();
+            if (jwtUserId == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
+
+            var user = await _context.Users.FindAsync(jwtUserId);
+            if (user == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
 
             var runs = await _context.Runs.Where(run => run.UserId == jwtUserId)
                 .Select(run => new RunDTO
@@ -43,7 +56,17 @@ namespace m151_backend.Controllers
         [HttpPost]
         public async Task<ActionResult> UpdateRun(RunDTO request)
         {
-            Guid jwtUserId = authorization.JwtUserId();
+            Guid? jwtUserId = _userService.GetUserGuid();
+            if (jwtUserId == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
+
+            var user = await _context.Users.FindAsync(jwtUserId);
+            if (user == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
 
             if (request.Duration <= 0 || request.Length <= 0 || request.StartTime < new DateTime(1900, 1, 1) ||
                 request.StartTime > DateTime.Now)
@@ -56,7 +79,7 @@ namespace m151_backend.Controllers
             {
                 _context.Runs.Add(new Run
                 {
-                    UserId = jwtUserId,
+                    UserId = (Guid) jwtUserId,
                     Altitude = request.Altitude,
                     Duration = request.Duration,
                     GpxFileId = request.GpxFileId,
@@ -83,7 +106,17 @@ namespace m151_backend.Controllers
         [HttpDelete]
         public async Task<ActionResult> DeleteMyRun(Guid runId)
         {
-            Guid jwtUserId = authorization.JwtUserId();
+            Guid? jwtUserId = _userService.GetUserGuid();
+            if (jwtUserId == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
+
+            var user = await _context.Users.FindAsync(jwtUserId);
+            if (user == null)
+            {
+                return BadRequest(_errorHandling.Unauthorized());
+            }
 
             var run = await _context.Runs.FindAsync(runId);
             if (run == null || run.UserId != jwtUserId)
