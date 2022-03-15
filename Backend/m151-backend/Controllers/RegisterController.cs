@@ -46,9 +46,15 @@ namespace m151_backend.Controllers
             user.PasswordSalt = hmac.Key;
             user.PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
 
+            var token = _authorization.CreateToken(user.Id);
+
+            user.RefreshToken = token.RefreshToken;
+            user.RefreshExpires = token.RefreshExpires;
+
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
-            return Ok(_authorization.CreateToken(user.Id));
+
+            return Ok(token);
         }
     }
 }

@@ -6,7 +6,6 @@ namespace m151_backend.Framework
     public class UserService : IUserService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private AuthorizationM151 _authorization = new();
 
         public UserService(IHttpContextAccessor httpContextAccessor)
         {

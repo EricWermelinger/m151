@@ -12,5 +12,7 @@
         public decimal? Height { get; set; }
         public DateTime? Birthdate { get; set; }
         public Guid? SexId { get; set; }
+        public DateTime? RefreshExpires { get; set; }
+        public string? RefreshToken { get; set; }
     }
 }
