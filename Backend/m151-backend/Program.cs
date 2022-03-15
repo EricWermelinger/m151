@@ -45,6 +45,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+string corsOrigin = "corsOrigin";
+string frontendUrl = builder.Configuration.GetSection("Frontend:URL").Value;
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        corsOrigin,
+        builder => builder.WithOrigins(frontendUrl)
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials());
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -54,6 +66,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(corsOrigin);
 
 app.UseAuthentication();
 app.UseAuthorization();
