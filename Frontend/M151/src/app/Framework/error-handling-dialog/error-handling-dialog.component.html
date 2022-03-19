@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Error Occured</h1>
+<div mat-dialog-content>
+    <h2>Input</h2>
+    <pre>
+      {{ data.request | json }}
+    </pre>
+    <h2>Output</h2>
+    <pre>
+      {{ data.error | json }}
+    </pre>
+</div>
+<div mat-dialog-actions>
+    <button mat-flat-button class="primary ignore-focus-color" mat-dialog-close cdkFocusInitial>
+    Retry
+  </button>
+</div>
