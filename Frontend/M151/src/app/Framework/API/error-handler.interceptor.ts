@@ -6,8 +6,7 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { catchError, map, Observable, of, switchMap, tap } from 'rxjs';
-import { appConfig } from '../Config/appConfig';
-import { appRoutes } from '../Config/appRoutes';
+import { ErrorHandlingService } from './error-handling.service';
 
 @Injectable()
 export class ErrorHandlerInterceptor implements HttpInterceptor {
@@ -21,18 +20,10 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
   refreshToken(): Observable<string>{
     return of('token');
   }
-
-  // todo: move to separate service
-  redirectToLogin() {
-    self.location.href = `${appConfig.FRONTEND_URL}${appRoutes.Login}`;
-  }
-
-  // todo: add ErrorHandling (as Dialog) in separate class with dialog
-  handleError(error: any, payload: any): Observable<any>{
-    return of(null);
-  }
   
-  constructor() {}
+  constructor(
+    private errorHandler: ErrorHandlingService,
+  ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
@@ -42,13 +33,16 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
             map(token => !token),
             tap(isUnauthenticated => {
               if (isUnauthenticated) {
-                this.redirectToLogin();
+                this.errorHandler.redirectToLogin();
               }
             }),
             switchMap(_ => next.handle(request))
           );
         } else {
-          return this.handleError(error, request);
+          return this.errorHandler.handleError({
+            error,
+            request
+          });
         }
       }),
     )

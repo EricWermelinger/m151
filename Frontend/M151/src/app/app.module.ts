@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './Material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ErrorHandlerInterceptor } from './Framework/error-handler.interceptor';
+import { ErrorHandlerInterceptor } from './Framework/API/error-handler.interceptor';
+import { ErrorHandlingDialogComponent } from './Framework/error-handling-dialog/error-handling-dialog.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ErrorHandlingDialogComponent
   ],
   imports: [
     BrowserModule,
