@@ -1,5 +1,6 @@
 export const appRoutes = {
     Empty: '',
+    App: 'app',
     AllRuns: 'allRuns',
     GpxFile: 'gpxFile',
     Login: 'login',
