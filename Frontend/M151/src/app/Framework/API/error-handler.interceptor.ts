@@ -7,29 +7,31 @@ import {
 } from '@angular/common/http';
 import { catchError, map, Observable, of, switchMap, tap } from 'rxjs';
 import { ErrorHandlingService } from './error-handling.service';
+import { TokenService } from './token.service';
+import { appConfig } from 'src/app/Config/appConfig';
 
 @Injectable()
 export class ErrorHandlerInterceptor implements HttpInterceptor {
-
-  // todo: add Token & Check in separate service and use in Guard
-  checkToken(): Observable<boolean> {
-    return of(true);
-  }
-
-  // todo: add refresh Token call in separate service
-  refreshToken(): Observable<string>{
-    return of('token');
-  }
   
   constructor(
     private errorHandler: ErrorHandlingService,
+    private tokenService: TokenService,
   ) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    const token = this.tokenService.getToken();
+    if (!!token) {
+      request = request.clone({
+        setHeaders: {
+          [appConfig.AUTHORIZATION]: `${appConfig.BEARER} ${token}`
+        }
+      });
+    }
+
     return next.handle(request).pipe(
       catchError(error => {
         if (error.status === 401){
-          return this.refreshToken().pipe(
+          return of(this.tokenService.getRefreshToken()).pipe(
             map(token => !token),
             tap(isUnauthenticated => {
               if (isUnauthenticated) {
