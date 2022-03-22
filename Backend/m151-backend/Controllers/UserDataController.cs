@@ -25,16 +25,10 @@ namespace m151_backend.Controllers
         [HttpGet]
         public async Task<ActionResult<UserDTO>> GetUserData()
         {
-            Guid? jwtUserId = _userService.GetUserGuid();
-            if (jwtUserId == null)
-            {
-                return BadRequest(_errorHandling.Unauthorized());
-            }
-
-            var user = await _context.Users.FindAsync(jwtUserId);
+            var user = await _userService.GetUser();
             if (user == null)
             {
-                return BadRequest(_errorHandling.Unauthorized());
+                return Unauthorized(_errorHandling.Unauthorized());
             }
 
             return Ok(new UserDTO
@@ -54,13 +48,13 @@ namespace m151_backend.Controllers
             Guid? jwtUserId = _userService.GetUserGuid();
             if (jwtUserId == null)
             {
-                return BadRequest(_errorHandling.Unauthorized());
+                return Unauthorized(_errorHandling.Unauthorized());
             }
 
             var user = await _context.Users.FindAsync(jwtUserId);
             if (user == null)
             {
-                return BadRequest(_errorHandling.Unauthorized());
+                return Unauthorized(_errorHandling.Unauthorized());
             }
 
             if (request.Birthdate < new DateTime(1900, 1, 1) || request.Birthdate > DateTime.Today ||

@@ -5,6 +5,7 @@ using m151_backend.ErrorHandling;
 using m151_backend.Framework;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi.Extensions;
 
 namespace m151_backend.Controllers
 {
@@ -33,14 +34,14 @@ namespace m151_backend.Controllers
             var user = await _context.Users.FirstOrDefaultAsync(usr => usr.Username == request.Username);
             if (user == null)
             {
-                return BadRequest(_errorHandling.DataNotValid());
+                return Ok(_errorHandling.GetCustomError(ErrorKeys.Login_WrongUser));
             }
    
             using var hmac = new HMACSHA512(user.PasswordSalt);
             var computeHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
             if (!computeHash.SequenceEqual(user.PasswordHash))
             {
-                return BadRequest(_errorHandling.DataNotValid());
+                return Ok(_errorHandling.GetCustomError(ErrorKeys.Login_WrongPassword));
             }
 
             var token = _authorization.CreateToken(user.Id);

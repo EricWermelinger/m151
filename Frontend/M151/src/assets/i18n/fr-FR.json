@@ -1,0 +1,17 @@
+{
+    "login": {
+      "login": "Connexion",
+      "username": "Nom d'utilisateur",
+      "password": "Mot de passe",
+      "registerInstead": "S'inscrire à la place",
+      "register": "S'inscrire",
+      "loginInstead": "Se connecter à la place"
+    },
+    "error": {
+      "Login_WrongUser": "L'utilisateur n'existe pas",
+      "Login_WrongPassword": "Le mot de passe ne correspond pas au nom d'utilisateur",
+      "Register_UsernameExists": "Nom d'utilisateur déjà pris",
+      "Refresh_UserNotFound": "Utilisateur introuvable",
+      "GpxFile_FileNotValid": "Gpx File est invalide"
+    }
+}

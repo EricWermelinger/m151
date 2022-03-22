@@ -33,7 +33,7 @@ namespace m151_backend.Controllers
             var usernameExists = await _context.Users.AnyAsync(usr => usr.Username == request.Username);
             if (usernameExists)
             {
-                return BadRequest(_errorHandling.DataNotValid());
+                return BadRequest(_errorHandling.GetCustomError(ErrorKeys.Register_UsernameExists));
             }
 
             var user = new User

@@ -28,7 +28,6 @@ namespace m151_backend.Controllers
         [HttpGet]
         public async Task<ActionResult<List<RunDTO>>> GetAllRuns(string requestSerialized)
         {
-            // example: { "LengthMin":10,"LengthMax":20,"AltitudeMin":30,"AltitudeMax":40,"PointLatitude":1,"PointLongitude":2,"RadiuseFromPoint":3}
             RunFilterDTO? request = JsonSerializer.Deserialize<RunFilterDTO?>(requestSerialized);
 
             if (request == null)

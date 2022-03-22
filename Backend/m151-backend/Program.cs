@@ -46,11 +46,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 string corsOrigin = "corsOrigin";
+string frontEnd = builder.Configuration.GetSection("Frontend:URL").Value;
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(
         corsOrigin,
-        builder => builder.AllowAnyOrigin()
+        builder => builder.WithOrigins(frontEnd)
             .AllowAnyMethod()
             .AllowAnyHeader());
 });

@@ -25,19 +25,13 @@ namespace m151_backend.Controllers
         [HttpGet]
         public async Task<ActionResult<List<RunDTO>>> GetMyRuns()
         {
-            Guid? jwtUserId = _userService.GetUserGuid();
-            if (jwtUserId == null)
-            {
-                return BadRequest(_errorHandling.Unauthorized());
-            }
-
-            var user = await _context.Users.FindAsync(jwtUserId);
+            var user = await _userService.GetUser();
             if (user == null)
             {
-                return BadRequest(_errorHandling.Unauthorized());
+                return Unauthorized(_errorHandling.Unauthorized());
             }
 
-            var runs = await _context.Runs.Where(run => run.UserId == jwtUserId)
+            var runs = await _context.Runs.Where(run => run.UserId == user.Id)
                 .Select(run => new RunDTO
                 {
                     Altitude = run.Altitude,
@@ -56,16 +50,10 @@ namespace m151_backend.Controllers
         [HttpPost]
         public async Task<ActionResult> UpdateRun(RunDTO request)
         {
-            Guid? jwtUserId = _userService.GetUserGuid();
-            if (jwtUserId == null)
-            {
-                return BadRequest(_errorHandling.Unauthorized());
-            }
-
-            var user = await _context.Users.FindAsync(jwtUserId);
+            var user = await _userService.GetUser();
             if (user == null)
             {
-                return BadRequest(_errorHandling.Unauthorized());
+                return Unauthorized(_errorHandling.Unauthorized());
             }
 
             if (request.Duration <= 0 || request.Length <= 0 || request.StartTime < new DateTime(1900, 1, 1) ||
@@ -79,7 +67,7 @@ namespace m151_backend.Controllers
             {
                 _context.Runs.Add(new Run
                 {
-                    UserId = (Guid) jwtUserId,
+                    UserId = user.Id,
                     Altitude = request.Altitude,
                     Duration = request.Duration,
                     GpxFileId = request.GpxFileId,
@@ -106,20 +94,14 @@ namespace m151_backend.Controllers
         [HttpDelete]
         public async Task<ActionResult> DeleteMyRun(Guid runId)
         {
-            Guid? jwtUserId = _userService.GetUserGuid();
-            if (jwtUserId == null)
-            {
-                return BadRequest(_errorHandling.Unauthorized());
-            }
-
-            var user = await _context.Users.FindAsync(jwtUserId);
+            var user = await _userService.GetUser();
             if (user == null)
             {
-                return BadRequest(_errorHandling.Unauthorized());
+                return Unauthorized(_errorHandling.Unauthorized());
             }
 
             var run = await _context.Runs.FindAsync(runId);
-            if (run == null || run.UserId != jwtUserId)
+            if (run == null || run.UserId != user.Id)
             {
                 return BadRequest(_errorHandling.ErrorNotFound());
             }
