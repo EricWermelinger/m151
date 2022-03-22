@@ -5,5 +5,6 @@ export const endpoints = {
     MyRuns: 'myRuns',
     Notes: 'notes',
     Refresh: 'refresh',
+    Register: 'register',
     UserData: 'userData'
 }

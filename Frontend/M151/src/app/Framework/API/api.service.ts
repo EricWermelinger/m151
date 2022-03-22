@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { CustomErrorDTO } from 'src/app/DTOs/CustomErrorDTO';
 import { appConfig } from '../../Config/appConfig';
 
 @Injectable({
@@ -30,7 +31,16 @@ export class ApiService {
         break;
     }
 
-    return request as Observable<T>;
+    return (request as Observable<T | CustomErrorDTO>).pipe(
+      map(result => {
+        const error = result as CustomErrorDTO;
+        if (error.errorKey !== undefined) {
+          return error.errorKey;
+        } else {
+          return result as T;
+        }
+      }),
+    ) as Observable<T | string>;
   }
 }
 

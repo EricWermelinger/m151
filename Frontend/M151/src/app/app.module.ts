@@ -9,11 +9,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorHandlerInterceptor } from './Framework/API/error-handler.interceptor';
 import { ErrorHandlingDialogComponent } from './Framework/error-handling-dialog/error-handling-dialog.component';
+import { LoginComponent } from './Pages/login/login.component';
+import { RegisterComponent } from './Pages/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ErrorHandlingDialogComponent
+    ErrorHandlingDialogComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

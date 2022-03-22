@@ -7,5 +7,6 @@ export const appRoutes = {
     MyRuns: 'myRuns',
     Notes: 'notes',
     Refresh: 'refresh',
+    Register: 'register',
     UserData: 'userData'
 }

@@ -30,7 +30,7 @@ namespace m151_backend.Controllers
             && usr.RefreshExpires >= DateTime.UtcNow);
             if (user == null)
             {
-                return BadRequest(_errorHandling.DataNotValid());
+                return Ok(ErrorKeys.Refresh_UserNotFound);
             }
    
             var token = _authorization.CreateToken(user.Id);

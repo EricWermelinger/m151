@@ -1,0 +1,15 @@
+<!-- todo i18n -->
+<form [formGroup]="form">
+    <h1>Login</h1>
+    <mat-error *ngIf="loginWrong">
+        {{ loginWrong }}
+    </mat-error>
+    <mat-form-field>
+        <input matInput type="text" formControlName="username" placeholder="Username" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" formControlName="password" placeholder="Password" required>
+    </mat-form-field>
+    <button mat-flat-button color="primary" type="submit" (click)="login()" [disabled]="!form.valid">Login</button>
+    <button mat-flat-button color="secondary" type="submit" (click)="register()">Register instead</button>
+</form>
