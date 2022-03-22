@@ -35,7 +35,7 @@ export class ApiService {
       map(result => {
         const error = result as CustomErrorDTO;
         if (error.errorKey !== undefined) {
-          return error.errorKey;
+          return 'error.' + error.errorKey;
         } else {
           return result as T;
         }

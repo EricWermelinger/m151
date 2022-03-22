@@ -1,15 +1,16 @@
-<!-- todo i18n -->
+<!-- todo erweiterungen des Projektes -->
+<!-- todo Post Brief -->
 <form [formGroup]="form">
-    <h1>Login</h1>
+    <h1>{{ 'login.login' | translate }}</h1>
     <mat-error *ngIf="loginWrong">
-        {{ loginWrong }}
+        {{ loginWrong | translate }}
     </mat-error>
     <mat-form-field>
-        <input matInput type="text" formControlName="username" placeholder="Username" required>
+        <input matInput type="text" formControlName="username" [placeholder]="'login.username' | translate" required>
     </mat-form-field>
     <mat-form-field>
-        <input matInput type="password" formControlName="password" placeholder="Password" required>
+        <input matInput type="password" formControlName="password" [placeholder]="'login.password' | translate" required>
     </mat-form-field>
-    <button mat-flat-button color="primary" type="submit" (click)="login()" [disabled]="!form.valid">Login</button>
-    <button mat-flat-button color="secondary" type="submit" (click)="register()">Register instead</button>
+    <button mat-flat-button color="primary" type="submit" (click)="login()" [disabled]="!form.valid">{{ 'login.login' | translate }}</button>
+    <button mat-flat-button color="secondary" type="submit" (click)="register()">{{ 'login.registerInstead' | translate }}</button>
 </form>

@@ -1,0 +1,17 @@
+{
+    "login": {
+        "login": "Login",
+        "username": "Username",
+        "password": "Password",
+        "registerInstead": "Register instead",
+        "register": "Register",
+        "loginInstead": "Login instead"
+    },
+    "error": {
+        "Login_WrongUser": "User doesn't exist",
+        "Login_WrongPassword": "Password doesn't match the username",
+        "Register_UsernameExists": "Username already taken",
+        "Refresh_UserNotFound": "User not found",
+        "GpxFile_FileNotValid": "Gpx-File not valid"
+    }
+}
