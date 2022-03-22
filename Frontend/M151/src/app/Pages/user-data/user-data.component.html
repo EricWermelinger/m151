@@ -8,9 +8,11 @@
     </mat-form-field>
     <mat-form-field>
         <input matInput type="number" min="40" max="200" formControlName="weight" [placeholder]="'userData.weight' | translate">
+        <span matSuffix>kg</span>
     </mat-form-field>
     <mat-form-field>
         <input matInput type="number" min="100" max="250" formControlName="height" [placeholder]="'userData.height' | translate">
+        <span matSuffix>cm</span>
     </mat-form-field>
     <mat-form-field>
         <mat-label>{{ 'userData.birthdate' | translate }}</mat-label>
