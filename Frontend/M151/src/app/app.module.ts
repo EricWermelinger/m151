@@ -15,6 +15,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { UserDataComponent } from './Pages/user-data/user-data.component';
 import { SpinnerDirective } from './Framework/spinner/spinner.directive';
+import { MyRunsComponent } from './Pages/my-runs/my-runs.component';
+import { RunDetailComponent } from './Pages/run-detail/run-detail.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -28,6 +30,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     RegisterComponent,
     UserDataComponent,
     SpinnerDirective,
+    MyRunsComponent,
+    RunDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+<ng-container *ngIf="myRuns$ | async as runs">
+    <div *ngFor="let run of runs">
+        id - {{ run.id }}
+        title - {{ run.title }}
+        startTime - {{ run.startTime }}
+        duration - {{ run.duration }}
+        length - {{ run.length }}
+        altitude - {{ run.altitude }}
+        gpxFileId - {{ run.gpxFileId }}
+        <button mat-flat-button color="primary" type="submit" (click)="details(run.id)">{{ 'framework.delete' | translate }}</button>
+        <button mat-flat-button color="secondary" type="submit" (click)="delete(run.id)">{{ 'framework.delete' | translate }}</button>
+    </div>
+</ng-container>
+<button mat-flat-button color="primary" type="submit" (click)="add()">{{ 'framework.add' | translate }}</button>

@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { appRoutes } from './Config/appRoutes';
 import { AppGuard } from './Framework/API/app.guard';
 import { LoginComponent } from './Pages/login/login.component';
+import { MyRunsComponent } from './Pages/my-runs/my-runs.component';
 import { RegisterComponent } from './Pages/register/register.component';
+import { RunDetailComponent } from './Pages/run-detail/run-detail.component';
 import { UserDataComponent } from './Pages/user-data/user-data.component';
 
 const routes: Routes = [
@@ -14,6 +16,8 @@ const routes: Routes = [
     canActivate: [AppGuard],
     children: [
       { path: appRoutes.UserData, component: UserDataComponent, pathMatch: 'full' },
+      { path: appRoutes.MyRuns, component: MyRunsComponent, pathMatch: 'full' },
+      { path: `${appRoutes.RunDetails}/:id`, component: RunDetailComponent, pathMatch: 'full' }
     ],
   },
 ];

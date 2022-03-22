@@ -92,7 +92,7 @@ namespace m151_backend.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> DeleteMyRun(Guid runId)
+        public async Task<ActionResult> DeleteMyRun(Guid id)
         {
             var user = await _userService.GetUser();
             if (user == null)
@@ -100,7 +100,7 @@ namespace m151_backend.Controllers
                 return Unauthorized(_errorHandling.Unauthorized());
             }
 
-            var run = await _context.Runs.FindAsync(runId);
+            var run = await _context.Runs.FindAsync(id);
             if (run == null || run.UserId != user.Id)
             {
                 return BadRequest(_errorHandling.ErrorNotFound());

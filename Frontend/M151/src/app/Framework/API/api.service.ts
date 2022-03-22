@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { CustomErrorDTO } from 'src/app/DTOs/CustomErrorDTO';
@@ -13,21 +13,21 @@ export class ApiService {
   ) { }
 
   callApi<T>(endpoint: string, payload: any, method: HttpMethods) {
-    const requestPayload = (method === 'GET' || method === 'DELETE') ? JSON.stringify(payload) : payload;
     const requestEndpoint = `${appConfig.API_URL}${endpoint}`;
+    const params = ((method === 'GET' || method === 'DELETE') && !!payload) ? new HttpParams().set('id', payload) : {};
     let request: any;
     switch (method) {
       case 'GET':
-        request = this.http.get(requestEndpoint, requestPayload);
+        request = this.http.get(requestEndpoint, { params });
         break;
       case 'POST':
-        request = this.http.post(requestEndpoint, requestPayload);
+        request = this.http.post(requestEndpoint, payload);
         break;
       case 'PUT':
-        request = this.http.put(requestEndpoint, requestPayload);
+        request = this.http.put(requestEndpoint, payload);
         break;
       case 'DELETE':
-        request = this.http.delete(requestEndpoint, requestPayload);
+        request = this.http.delete(requestEndpoint, { params });
         break;
     }
 
