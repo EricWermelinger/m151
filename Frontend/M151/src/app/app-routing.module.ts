@@ -4,6 +4,7 @@ import { appRoutes } from './Config/appRoutes';
 import { AppGuard } from './Framework/API/app.guard';
 import { LoginComponent } from './Pages/login/login.component';
 import { RegisterComponent } from './Pages/register/register.component';
+import { UserDataComponent } from './Pages/user-data/user-data.component';
 
 const routes: Routes = [
   { path: appRoutes.Login, component: LoginComponent },
@@ -12,7 +13,7 @@ const routes: Routes = [
     path: appRoutes.App,
     canActivate: [AppGuard],
     children: [
-      
+      { path: appRoutes.UserData, component: UserDataComponent, pathMatch: 'full' },
     ],
   },
 ];

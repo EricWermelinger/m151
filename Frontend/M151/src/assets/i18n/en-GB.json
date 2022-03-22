@@ -1,4 +1,8 @@
 {
+    "framework": {
+        "save": "Save",
+        "cancel": "Cancel"
+    },
     "login": {
         "login": "Login",
         "username": "Username",
@@ -7,11 +11,23 @@
         "register": "Register",
         "loginInstead": "Login instead"
     },
+    "userData": {
+        "userData": "User Data",
+        "firstname": "Firstname",
+        "lastname": "Lastname",
+        "weight": "Weight",
+        "height": "Height",
+        "birthdate": "Birthdate",
+        "gender": "Gender",
+        "genderMale": "Male",
+        "genderFemale": "Female",
+        "genderOther": "Other"
+    },
     "error": {
         "Login_WrongUser": "User doesn't exist",
         "Login_WrongPassword": "Password doesn't match the username",
         "Register_UsernameExists": "Username already taken",
         "Refresh_UserNotFound": "User not found",
-        "GpxFile_FileNotValid": "Gpx-File not valid"
+        "GpxFile_FileNotValid": "Gpx File is not valid"
     }
 }

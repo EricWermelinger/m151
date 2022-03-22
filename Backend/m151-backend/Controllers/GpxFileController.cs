@@ -90,7 +90,7 @@ namespace m151_backend.Controllers
                 .OrderBy(nod => nod.Time)
                 .Select((nod, index) => new
                 {
-                    Id = new Guid(),
+                    Id = Guid.NewGuid(),
                     nod.OrderInFile,
                     nod.Elevation,
                     nod.Latitude,
@@ -105,7 +105,7 @@ namespace m151_backend.Controllers
                 return BadRequest(_errorHandling.GetCustomError(ErrorKeys.GpxFile_FileNotValid));
             }
 
-            Guid gpxFileId = new Guid();
+            Guid gpxFileId = Guid.NewGuid();
             _context.GpxFiles.Add(new GpxFile
             {
                 Id = gpxFileId,

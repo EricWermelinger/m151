@@ -13,6 +13,8 @@ import { LoginComponent } from './Pages/login/login.component';
 import { RegisterComponent } from './Pages/register/register.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { UserDataComponent } from './Pages/user-data/user-data.component';
+import { SpinnerDirective } from './Framework/spinner/spinner.directive';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -24,6 +26,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ErrorHandlingDialogComponent,
     LoginComponent,
     RegisterComponent,
+    UserDataComponent,
+    SpinnerDirective,
   ],
   imports: [
     BrowserModule,

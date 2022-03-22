@@ -7,6 +7,6 @@
         public decimal? Weight { get; set; }
         public decimal? Height { get; set; }
         public DateTime? Birthdate { get; set; }
-        public Guid? SexId { get; set; }
+        public int? SexId { get; set; }
     }
 }
