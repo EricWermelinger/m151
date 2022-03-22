@@ -34,6 +34,9 @@ export class ApiService {
     return (request as Observable<T | CustomErrorDTO>).pipe(
       map(result => {
         const error = result as CustomErrorDTO;
+        if (!error) {
+          return null;
+        }
         if (error.errorKey !== undefined) {
           return 'error.' + error.errorKey;
         } else {

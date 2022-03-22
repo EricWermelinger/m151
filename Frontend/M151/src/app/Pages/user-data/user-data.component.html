@@ -1,0 +1,33 @@
+<form [formGroup]="form" *showSpinner="showSpinner">
+    <h1>{{ 'userData.userData' | translate }}</h1>
+    <mat-form-field>
+        <input matInput type="text" formControlName="firstname" [placeholder]="'userData.firstname' | translate">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" formControlName="lastname" [placeholder]="'userData.lastname' | translate">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" min="40" max="200" formControlName="weight" [placeholder]="'userData.weight' | translate">
+        <span matSuffix>kg</span>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" min="100" max="250" formControlName="height" [placeholder]="'userData.height' | translate">
+        <span matSuffix>cm</span>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>{{ 'userData.birthdate' | translate }}</mat-label>
+        <input matInput formControlName="birthdate" [max]="maxDate" [min]="minDate" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>{{ 'userData.gender' | translate }}</mat-label>
+        <mat-select formControlName="sexId">
+            <mat-option [value]="1">{{ 'userData.genderMale' | translate }}</mat-option>
+            <mat-option [value]="2">{{ 'userData.genderFemale' | translate }}</mat-option>
+            <mat-option [value]="3">{{ 'userData.genderOther' | translate }}</mat-option>
+        </mat-select>
+    </mat-form-field>    
+    <button mat-flat-button color="primary" type="submit" (click)="save()" [disabled]="!form.valid">{{ 'framework.save' | translate }}</button>
+    <button mat-flat-button color="secondary" type="submit" (click)="cancel()">{{ 'framework.cancel' | translate }}</button>
+</form>

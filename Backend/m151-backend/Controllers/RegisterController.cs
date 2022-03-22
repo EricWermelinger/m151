@@ -38,7 +38,7 @@ namespace m151_backend.Controllers
 
             var user = new User
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 Username = request.Username
             };
 

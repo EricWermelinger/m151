@@ -30,6 +30,22 @@ export class LoginComponent {
       username: '',
       password: '',
     }) as FormGroupTyped<LoginDTO>;
+
+    const refreshToken = this.tokenService.getRefreshToken();
+    if (!!refreshToken) {
+      this.api.callApi<TokenDTO>(endpoints.Refresh, {
+        refreshToken
+      }, 'POST').subscribe(token => {
+        if (typeof(token) !== 'string') {
+          this.tokenService.setToken(token.token);
+          this.tokenService.setRefreshToken(token.refreshToken);
+          this.router.navigate([appRoutes.App, appRoutes.MyRuns]);
+        } else {
+          this.tokenService.removeToken();
+          this.tokenService.removeRefreshToken();
+        }
+     })
+    }
   }
 
   login() {

@@ -16,11 +16,19 @@ export class TokenService {
     return localStorage.getItem(appConfig.TOKEN);
   }
 
+  removeToken() {
+    localStorage.removeItem(appConfig.TOKEN);
+  }
+
   setRefreshToken(refreshToken: string) {
     localStorage.setItem(appConfig.REFRESH_TOKEN, refreshToken);
   }
 
   getRefreshToken(): string | null {
     return localStorage.getItem(appConfig.REFRESH_TOKEN);
+  }
+
+  removeRefreshToken() {
+    localStorage.removeItem(appConfig.REFRESH_TOKEN);
   }
 }

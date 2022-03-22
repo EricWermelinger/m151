@@ -23,14 +23,19 @@ namespace m151_backend.Controllers
             _context = context;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<TokenDTO>> RefreshUser(string refreshToken)
+        [HttpPost]
+        public async Task<ActionResult<TokenDTO>> RefreshUser(RefreshTokenDTO command)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(usr => usr.RefreshToken == refreshToken
-            && usr.RefreshExpires >= DateTime.UtcNow);
+            if (command == null)
+            {
+                return Ok(_errorHandling.GetCustomError(ErrorKeys.Refresh_UserNotFound));
+            }
+
+            var user = await _context.Users.FirstOrDefaultAsync(usr => usr.RefreshToken == command.RefreshToken
+                                                                       && usr.RefreshExpires >= DateTime.UtcNow);
             if (user == null)
             {
-                return Ok(ErrorKeys.Refresh_UserNotFound);
+                return Ok(_errorHandling.GetCustomError(ErrorKeys.Refresh_UserNotFound));
             }
    
             var token = _authorization.CreateToken(user.Id);
