@@ -3,9 +3,9 @@
         <mat-card-title>{{ run.title }}</mat-card-title>
         <mat-card-subtitle>{{ run.startTime | date :'short' }}</mat-card-subtitle>
         <mat-card-content>
-            <p *ngIf="run.length">{{ 'myRuns.length' | translate }}: {{ run.length }}m</p>
-            <p *ngIf="run.duration">{{ 'myRuns.duration' | translate }}: {{ run.duration }}min</p>
-            <p *ngIf="run.altitude">{{ 'myRuns.altitude' | translate }}: {{ run.altitude }}m</p>
+            <p *ngIf="run.length">{{ 'runDetails.length' | translate }}: {{ run.length }}m</p>
+            <p *ngIf="run.duration">{{ 'runDetails.duration' | translate }}: {{ run.duration }}min</p>
+            <p *ngIf="run.altitude">{{ 'runDetails.altitude' | translate }}: {{ run.altitude }}m</p>
           </mat-card-content>
         <mat-divider inset></mat-divider>
         <mat-card-actions>

@@ -1,17 +1,46 @@
 {
-    "login": {
-      "login": "लॉगिन",
-      "username": "उपयोगकर्ता नाम",
-      "password": "पासवर्ड",
-      "registerInstead": "इसके बजाय पंजीकरण करें",
-      "register": "पंजीकरण करें",
-      "loginInstead": "इसके बजाय लॉगिन करें"
-    },
-    "error": {
-      "Login_WrongUser": "उपयोगकर्ता मौजूद नहीं है",
-      "Login_WrongPassword": "पासवर्ड उपयोगकर्ता नाम से मेल नहीं खाता",
-      "Register_UsernameExists": "उपयोगकर्ता नाम पहले से ही लिया गया है",
-      "Refresh_UserNotFound": "उपयोगकर्ता नहीं मिला",
-      "GpxFile_FileNotValid": "जीपीएक्स-फाइल मान्य नहीं है"
+  "framework": {
+    "save": "सहेजें",
+    "cancel": "रद्द करें",
+    "delete": "हटाएं",
+    "edit": "संपादित करें",
+    "add": "जोड़ें",
+    "back": "वापस"
+  },
+  "login": {
+    "login": "लॉगिन",
+    "username": "उपयोगकर्ता नाम",
+    "password": "पासवर्ड",
+    "registerInstead": "इसके बजाय रजिस्टर करें",
+    "register": "रद्द करें0",
+    "loginInstead": "रद्द करें1"
+  },
+  "userData": {
+    "userData": "रद्द करें2",
+    "firstname": "रद्द करें3",
+    "lastname": "रद्द करें4",
+    "weight": "रद्द करें5",
+    "height": "रद्द करें6",
+    "birthdate": "रद्द करें7",
+    "gender": "रद्द करें8",
+    "genderMale": "रद्द करें9",
+    "genderFemale": "हटाएं0",
+    "genderOther": "हटाएं1"
+  },
+  "runDetails": {
+    "runDetails": "हटाएं2",
+    "title": "हटाएं3",
+    "startTime": "हटाएं4",
+    "length": "हटाएं5",
+    "duration": "हटाएं6",
+    "altitude": "हटाएं7",
+    "gpxFile": "हटाएं8"
+  },
+  "error": {
+    "Login_WrongUser": "हटाएं9",
+    "Login_WrongPassword": "संपादित करें0",
+    "Register_UsernameExists": "संपादित करें1",
+    "Refresh_UserNotFound": "संपादित करें2",
+    "GpxFile_FileNotValid": "संपादित करें3"
   }
 }

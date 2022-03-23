@@ -4,7 +4,8 @@
         "cancel": "Cancel",
         "delete": "Delete",
         "edit": "Edit",
-        "add": "Add"
+        "add": "Add",
+        "back": "Back"
     },
     "login": {
         "login": "Login",
@@ -26,12 +27,13 @@
         "genderFemale": "Female",
         "genderOther": "Other"
     },
-    "myRuns": {
+    "runDetails": {
+        "runDetails": "Run Details",
+        "title": "Title",
+        "startTime": "Starttime",
         "length": "Length",
         "duration": "Duration",
-        "altitude": "Altitude Uphill"
-    },
-    "runDetails": {
+        "altitude": "Altitude Uphill",
         "gpxFile": "Gpx File"
     },
     "error": {

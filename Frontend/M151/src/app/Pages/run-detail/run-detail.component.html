@@ -1,1 +1,30 @@
-<p>run-detail works!</p>
+<form [formGroup]="form" *showSpinner="showSpinner">
+    <h1>{{ 'runDetails.runDetails' | translate }}</h1>
+    <mat-form-field>
+        <input matInput type="text" formControlName="title" [placeholder]="'runDetails.title' | translate" required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>{{ 'runDetails.startTime' | translate }}</mat-label>
+        <input matInput formControlName="startTime" [max]="maxDate" [min]="minDate" [ngxMatDatetimePicker]="picker" required>
+        <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+        <ngx-mat-datetime-picker #picker>
+        </ngx-mat-datetime-picker>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" min="1" formControlName="length" [placeholder]="'runDetails.length' | translate" required>
+        <span matSuffix>m</span>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" min="1" formControlName="duration" [placeholder]="'runDetails.duration' | translate" required>
+        <span matSuffix>min</span>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="number" min="0" formControlName="altitude" [placeholder]="'runDetails.altitude' | translate" required>
+        <span matSuffix>m</span>
+    </mat-form-field>
+    <!-- todo gpx fileupload -->
+    <!-- todo notes -->
+    <button mat-flat-button color="primary" type="submit" (click)="save()" [disabled]="!form.valid">{{ 'framework.save' | translate }}</button>
+    <button mat-flat-button color="secondary" type="submit" (click)="cancel()">{{ 'framework.cancel' | translate }}</button>
+    <button mat-flat-button color="secondary" type="submit" (click)="back()">{{ 'framework.back' | translate }}</button>
+</form>

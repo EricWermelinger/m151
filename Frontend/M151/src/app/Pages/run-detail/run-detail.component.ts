@@ -17,6 +17,9 @@ export class RunDetailComponent {
 
   form: FormGroupTyped<RunDTO>;
   id$ = new BehaviorSubject<string | null>(null);
+  showSpinner = false;
+  maxDate = new Date();
+  minDate = new Date(1900, 0, 1);
 
   constructor(
     private api: ApiService,
@@ -26,7 +29,7 @@ export class RunDetailComponent {
   ) { 
     this.form = this.formBuilder.group({
       title: null,
-      starttime: null,
+      startTime: null,
       length: null,
       duration: null,
       altitude: null,
@@ -37,6 +40,7 @@ export class RunDetailComponent {
       map(url => url[1].path)
     ).subscribe(id => this.id$.next(id));
 
+    this.showSpinner = true;
     this.id$.asObservable().pipe(
       filter(id => !!id),
       distinctUntilChanged(),
@@ -45,26 +49,31 @@ export class RunDetailComponent {
       if (typeof(run) !== 'string') {
         this.form.patchValue(run);
       }
+      this.showSpinner = false;
     });
   }
 
   save() {
     const id = this.id$.value;
     if (!!id) {
+      this.showSpinner = true;
       this.api.callApi(endpoints.MyRuns, {
         ...this.form.value,
         id,
-      }, 'POST');
+      }, 'POST').subscribe(_ => this.showSpinner = false);
     }
   }
 
   cancel() {
     const id = this.id$.value;
     if (!!id) {
+      this.showSpinner = true;
       this.api.callApi<RunDTO>(endpoints.RunDetail, id, 'GET').subscribe(run => {
+        console.log(run)
         if (typeof(run) !== 'string') {
           this.form.patchValue(run);
         }
+        this.showSpinner = false;
       });
     }
   }
