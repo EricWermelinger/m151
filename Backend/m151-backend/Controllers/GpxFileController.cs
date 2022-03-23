@@ -28,7 +28,7 @@ namespace m151_backend.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<GpxFileDTO>> GetDownloadGpxFile(Guid gpxFileId)
+        public async Task<ActionResult<GpxFileDTO>> GetDownloadGpxFile(Guid id)
         {
             var user = await _userService.GetUser();
             if (user == null)
@@ -36,14 +36,14 @@ namespace m151_backend.Controllers
                 return Unauthorized(_errorHandling.Unauthorized());
             }
 
-            var gpxFile = await _context.GpxFiles.FindAsync(gpxFileId);
-            var run = await _context.Runs.Where(run => run.GpxFileId == gpxFileId && run.UserId == user.Id).FirstOrDefaultAsync();
+            var gpxFile = await _context.GpxFiles.FindAsync(id);
+            var run = await _context.Runs.Where(run => run.GpxFileId == id && run.UserId == user.Id).FirstOrDefaultAsync();
             if (gpxFile == null || run == null)
             {
                 return BadRequest(_errorHandling.ErrorNotFound());
             }
             
-            var nodes = await _context.GpxNodes.Where(node => node.GpxFileId == gpxFileId)
+            var nodes = await _context.GpxNodes.Where(node => node.GpxFileId == id)
                 .OrderBy(node => node.OrderInFile)
                 .Select(node => new GpxNodeDTO
                 {
@@ -150,7 +150,7 @@ namespace m151_backend.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> DeleteGpxFile(Guid gpxFileId)
+        public async Task<ActionResult> DeleteGpxFile(Guid id)
         {
             var user = await _userService.GetUser();
             if (user == null)
@@ -158,14 +158,14 @@ namespace m151_backend.Controllers
                 return Unauthorized(_errorHandling.Unauthorized());
             }
 
-            var gpxFile = await _context.GpxFiles.FindAsync(gpxFileId);
-            var run = await _context.Runs.Where(run => run.GpxFileId == gpxFileId && run.UserId == user.Id).FirstOrDefaultAsync();
+            var gpxFile = await _context.GpxFiles.FindAsync(id);
+            var run = await _context.Runs.Where(run => run.GpxFileId == id && run.UserId == user.Id).FirstOrDefaultAsync();
             if (gpxFile == null || run == null)
             {
                 return BadRequest(_errorHandling.ErrorNotFound());
             }
 
-            var nodesToRemove = await _context.GpxNodes.Where(node => node.GpxFileId == gpxFileId)
+            var nodesToRemove = await _context.GpxNodes.Where(node => node.GpxFileId == id)
                 .ToListAsync();
             _context.GpxNodes.RemoveRange(nodesToRemove);
             _context.GpxFiles.Remove(gpxFile);

@@ -5,7 +5,7 @@ export const appRoutes = {
     GpxFile: 'gpxFile',
     Login: 'login',
     MyRuns: 'myRuns',
-    Notes: 'notes',
+    RunDetails: 'run',
     Refresh: 'refresh',
     Register: 'register',
     UserData: 'userData'

@@ -1,7 +1,10 @@
 {
     "framework": {
         "save": "Save",
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "add": "Add"
     },
     "login": {
         "login": "Login",
@@ -22,6 +25,14 @@
         "genderMale": "Male",
         "genderFemale": "Female",
         "genderOther": "Other"
+    },
+    "myRuns": {
+        "length": "Length",
+        "duration": "Duration",
+        "altitude": "Altitude Uphill"
+    },
+    "runDetails": {
+        "gpxFile": "Gpx File"
     },
     "error": {
         "Login_WrongUser": "User doesn't exist",

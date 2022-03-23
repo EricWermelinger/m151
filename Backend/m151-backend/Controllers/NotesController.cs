@@ -23,7 +23,7 @@ namespace m151_backend.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<RunNoteDTO>>> GetNotes(Guid runId)
+        public async Task<ActionResult<List<RunNoteDTO>>> GetNotes(Guid id)
         {
             var user = await _userService.GetUser();
             if (user == null)
@@ -31,14 +31,14 @@ namespace m151_backend.Controllers
                 return Unauthorized(_errorHandling.Unauthorized());
             }
 
-            var run = await _context.Runs.FindAsync(runId);
+            var run = await _context.Runs.FindAsync(id);
 
             if (run == null || run.UserId != user.Id)
             {
                 return BadRequest(_errorHandling.DataNotValid());
             }
 
-            var notes = _context.RunNotes.Where(note => note.RunId == runId)
+            var notes = _context.RunNotes.Where(note => note.RunId == id)
                 .Select(note => new RunNoteDTO
                 {
                     Id = note.Id,
@@ -86,7 +86,7 @@ namespace m151_backend.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> DeleteNote(Guid noteId)
+        public async Task<ActionResult> DeleteNote(Guid id)
         {
             var user = await _userService.GetUser();
             if (user == null)
@@ -94,7 +94,7 @@ namespace m151_backend.Controllers
                 return Unauthorized(_errorHandling.Unauthorized());
             }
 
-            var note = await _context.RunNotes.FindAsync(noteId);
+            var note = await _context.RunNotes.FindAsync(id);
             if (note == null)
             {
                 return BadRequest(_errorHandling.ErrorNotFound());
