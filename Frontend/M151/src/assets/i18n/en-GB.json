@@ -34,7 +34,9 @@
         "length": "Length",
         "duration": "Duration",
         "altitude": "Altitude Uphill",
-        "gpxFile": "Gpx File"
+        "gpxFile": "Gpx File",
+        "note": "Note",
+        "addNote": "Add Note"
     },
     "error": {
         "Login_WrongUser": "User doesn't exist",
@@ -42,5 +44,9 @@
         "Register_UsernameExists": "Username already taken",
         "Refresh_UserNotFound": "User not found",
         "GpxFile_FileNotValid": "Gpx File is not valid"
+    },
+    "languages": {
+        "english": "English",
+        "hindi": "Hindi"
     }
 }

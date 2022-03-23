@@ -23,8 +23,25 @@
         <span matSuffix>m</span>
     </mat-form-field>
     <!-- todo gpx fileupload -->
-    <!-- todo notes -->
+</form>
+<ng-container *ngIf="(notes$ | async) as notes">
+    <form *ngFor="let note of notes" [formGroup]="note" class="note">
+        <mat-form-field>
+            <input matInput type="text" formControlName="note" [placeholder]="'runDetails.note' | translate">
+        </mat-form-field>
+        <!-- todo use icons -->
+        <mat-icon aria-hidden="false">edit</mat-icon>
+        <mat-icon aria-hidden="false">delete</mat-icon>
+        <mat-icon aria-hidden="false">save</mat-icon>
+        <mat-icon aria-hidden="false">add</mat-icon>
+        <mat-icon aria-hidden="false">close</mat-icon>
+        <mat-icon aria-hidden="false">chevron_left</mat-icon>
+        <button mat-flat-button color="secondary" type="submit" (click)="deleteNote(note.value.id)">{{ 'framework.delete' | translate }}</button>
+    </form>
+</ng-container>
+<div class="buttons">
+    <button *ngIf="isSet" mat-flat-button color="primary" type="submit" (click)="addNote()">{{ 'runDetails.addNote' | translate }}</button>
     <button mat-flat-button color="primary" type="submit" (click)="save()" [disabled]="!form.valid">{{ 'framework.save' | translate }}</button>
     <button mat-flat-button color="secondary" type="submit" (click)="cancel()">{{ 'framework.cancel' | translate }}</button>
     <button mat-flat-button color="secondary" type="submit" (click)="back()">{{ 'framework.back' | translate }}</button>
-</form>
+</div>

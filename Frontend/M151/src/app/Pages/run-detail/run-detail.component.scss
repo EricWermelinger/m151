@@ -1,9 +1,20 @@
 form {
     display: grid;
     grid-template-columns: 1fr;
-    max-width: 100px;
+    max-width: 200px;
 }
 
-button {
+form.note {
     margin-top: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 200px;
+    button {
+        margin-top: 10px;
+    }
 }
