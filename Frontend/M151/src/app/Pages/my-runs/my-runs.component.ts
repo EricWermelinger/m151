@@ -20,20 +20,24 @@ export class MyRunsComponent {
     private api: ApiService,
     private router: Router,
   ) { 
-    this.myRuns$ = this.api.callApi<RunDTO[]>(endpoints.MyRuns, {}, 'GET') as Observable<RunDTO[]>;
+    this.myRuns$ = this.api.callApi<RunDTO[]>(endpoints.MyRuns, null, 'GET') as Observable<RunDTO[]>;
   }
 
   add() {
     this.router.navigate([appRoutes.App, appRoutes.RunDetails, UUID.UUID()]);
   }
 
-  details(guid: string) {
-    this.router.navigate([appRoutes.App, appRoutes.RunDetails, guid]);
+  details(runId: string) {
+    this.router.navigate([appRoutes.App, appRoutes.RunDetails, runId]);
   }
 
-  delete(guid: string) {
-    this.api.callApi(endpoints.MyRuns, guid, 'DELETE').subscribe(_ => {
+  delete(runId: string) {
+    this.api.callApi(endpoints.MyRuns, runId, 'DELETE').subscribe(_ => {
       this.myRuns$ = this.api.callApi<RunDTO[]>(endpoints.MyRuns, {}, 'GET') as Observable<RunDTO[]>;
     });
+  }
+
+  gpxFile(gpxFileId: string) {
+    // todo file download
   }
 }
