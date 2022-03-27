@@ -9,6 +9,6 @@
     <mat-form-field>
         <input matInput type="password" formControlName="password" [placeholder]="'login.password' | translate" required>
     </mat-form-field>
-    <button mat-flat-button color="primary" type="submit" (click)="login()" [disabled]="!form.valid">{{ 'login.login' | translate }}</button>
+    <button mat-flat-button color="primary" type="submit" (click)="login()" [disabled]="!form.valid || !form.dirty">{{ 'login.login' | translate }}</button>
     <button mat-flat-button color="secondary" type="submit" (click)="register()">{{ 'login.registerInstead' | translate }}</button>
 </form>

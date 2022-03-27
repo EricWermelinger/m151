@@ -1,52 +1,52 @@
 {
-    "framework": {
-        "save": "Save",
-        "cancel": "Cancel",
-        "delete": "Delete",
-        "edit": "Edit",
-        "add": "Add",
-        "back": "Back"
+    "framework":{
+        "save":"Save",
+        "cancel":"Cancel",
+        "delete":"Delete",
+        "edit":"Edit",
+        "add":"Add",
+        "back":"Back"
     },
-    "login": {
-        "login": "Login",
-        "username": "Username",
-        "password": "Password",
-        "registerInstead": "Register instead",
-        "register": "Register",
-        "loginInstead": "Login instead"
+    "login":{
+        "login":"Login",
+        "username":"Username",
+        "password":"Password",
+        "registerInstead":"Register instead",
+        "register":"Register",
+        "loginInstead":"Login instead"
     },
-    "userData": {
-        "userData": "User Data",
-        "firstname": "Firstname",
-        "lastname": "Lastname",
-        "weight": "Weight",
-        "height": "Height",
-        "birthdate": "Birthdate",
-        "gender": "Gender",
-        "genderMale": "Male",
-        "genderFemale": "Female",
-        "genderOther": "Other"
+    "userData":{
+        "userData":"User Data",
+        "firstname":"Firstname",
+        "lastname":"Lastname",
+        "weight":"Weight",
+        "height":"Height",
+        "birthdate":"Birthdate",
+        "gender":"Gender",
+        "genderMale":"Male",
+        "genderFemale":"Female",
+        "genderOther":"Other"
     },
-    "runDetails": {
-        "runDetails": "Run Details",
-        "title": "Title",
-        "startTime": "Starttime",
-        "length": "Length",
-        "duration": "Duration",
-        "altitude": "Altitude Uphill",
-        "gpxFile": "Gpx File",
-        "note": "Note",
-        "addNote": "Add Note"
+    "runDetails":{
+        "runDetails":"Run Details",
+        "title":"Title",
+        "startTime":"Starttime",
+        "length":"Length",
+        "duration":"Duration",
+        "altitude":"Altitude Uphill",
+        "gpxFile":"Gpx File",
+        "note":"Note",
+        "deleteGpxFile": "Delete GPX File"
     },
-    "error": {
-        "Login_WrongUser": "User doesn't exist",
-        "Login_WrongPassword": "Password doesn't match the username",
-        "Register_UsernameExists": "Username already taken",
-        "Refresh_UserNotFound": "User not found",
-        "GpxFile_FileNotValid": "Gpx File is not valid"
+    "error":{
+        "Login_WrongUser":"User doesn't exist",
+        "Login_WrongPassword":"Password doesn't match the username",
+        "Register_UsernameExists":"Username already taken",
+        "Refresh_UserNotFound":"User not found",
+        "GpxFile_FileNotValid":"Gpx File is not valid"
     },
-    "languages": {
-        "english": "English",
-        "hindi": "Hindi"
+    "languages":{
+        "english":"English",
+        "hindi":"Hindi"
     }
 }

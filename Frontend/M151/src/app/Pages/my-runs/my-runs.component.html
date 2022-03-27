@@ -9,10 +9,15 @@
           </mat-card-content>
         <mat-divider inset></mat-divider>
         <mat-card-actions>
-          <button mat-button color="primary" (click)="details(run.id)">{{ 'framework.edit' | translate }}</button>
-          <button mat-button color="secondary" (click)="delete(run.id)">{{ 'framework.delete' | translate }}</button>
-          <button *ngIf="run.gpxFileId" mat-button color="secondary" (click)="gpxFile(run.gpxFileId)">{{ 'runDetails.gpxFile' | translate }}</button>
+          <button mat-button color="primary" (click)="details(run.id)">
+            <mat-icon aria-hidden="false">edit</mat-icon>
+          </button>
+          <button mat-button color="secondary" (click)="delete(run.id)">
+            <mat-icon aria-hidden="false">delete</mat-icon>
+          </button>
         </mat-card-actions>
       </mat-card>
 </ng-container>
-<button mat-flat-button color="primary" type="submit" (click)="add()">{{ 'framework.add' | translate }}</button>
+<button mat-flat-button color="primary" type="submit" (click)="add()">
+  <mat-icon aria-hidden="false">add</mat-icon>
+</button>

@@ -22,26 +22,43 @@
         <input matInput type="number" min="0" formControlName="altitude" [placeholder]="'runDetails.altitude' | translate" required>
         <span matSuffix>m</span>
     </mat-form-field>
-    <!-- todo gpx fileupload -->
+    <div class="fileUpload" *ngIf="!form.controls.gpxFile.disabled; else fileInfo">
+        <mat-form-field>
+            <ngx-mat-file-input [placeholder]="'runDetails.gpxFile' | translate" formControlName="gpxFile" accept=".gpx" (change)="fileChanged($event)">
+            </ngx-mat-file-input>
+            <mat-icon matSuffix aria-hidden="false">attach_file</mat-icon>
+        </mat-form-field>
+        <button mat-flat-button color="secondary" type="submit" (click)="deleteFile()">
+            <mat-icon aria-hidden="false">delete</mat-icon>
+        </button>
+    </div>
+    <ng-template #fileInfo>
+        <button mat-flat-button color="secondary" type="submit" (click)="deleteFile()">
+            {{ 'runDetails.deleteGpxFile' | translate }}
+        </button>
+    </ng-template>
 </form>
 <ng-container *ngIf="(notes$ | async) as notes">
     <form *ngFor="let note of notes" [formGroup]="note" class="note">
         <mat-form-field>
             <input matInput type="text" formControlName="note" [placeholder]="'runDetails.note' | translate">
         </mat-form-field>
-        <!-- todo use icons -->
-        <mat-icon aria-hidden="false">edit</mat-icon>
-        <mat-icon aria-hidden="false">delete</mat-icon>
-        <mat-icon aria-hidden="false">save</mat-icon>
-        <mat-icon aria-hidden="false">add</mat-icon>
-        <mat-icon aria-hidden="false">close</mat-icon>
-        <mat-icon aria-hidden="false">chevron_left</mat-icon>
-        <button mat-flat-button color="secondary" type="submit" (click)="deleteNote(note.value.id)">{{ 'framework.delete' | translate }}</button>
+        <button mat-flat-button color="secondary" type="submit" (click)="deleteNote(note.value.id)">
+            <mat-icon aria-hidden="false">delete</mat-icon>
+        </button>
     </form>
 </ng-container>
 <div class="buttons">
-    <button *ngIf="isSet" mat-flat-button color="primary" type="submit" (click)="addNote()">{{ 'runDetails.addNote' | translate }}</button>
-    <button mat-flat-button color="primary" type="submit" (click)="save()" [disabled]="!form.valid">{{ 'framework.save' | translate }}</button>
-    <button mat-flat-button color="secondary" type="submit" (click)="cancel()">{{ 'framework.cancel' | translate }}</button>
-    <button mat-flat-button color="secondary" type="submit" (click)="back()">{{ 'framework.back' | translate }}</button>
+    <button *ngIf="isSet" mat-flat-button color="primary" type="submit" (click)="addNote()">
+        <mat-icon aria-hidden="false">add</mat-icon>
+    </button>
+    <button mat-flat-button color="primary" type="submit" (click)="save()" [disabled]="!form.valid || !form.dirty">
+        <mat-icon aria-hidden="false">save</mat-icon>
+    </button>
+    <button mat-flat-button color="secondary" type="submit" (click)="cancel()" [disabled]="!form.dirty">
+        <mat-icon aria-hidden="false">close</mat-icon>
+    </button>
+    <button mat-flat-button color="secondary" type="submit" (click)="back()">
+        <mat-icon aria-hidden="false">chevron_left</mat-icon>
+    </button>
 </div>

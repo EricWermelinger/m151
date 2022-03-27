@@ -33,7 +33,12 @@ namespace m151_backend.Controllers
 
             var run = await _context.Runs.FindAsync(id);
 
-            if (run == null || run.UserId != user.Id)
+            if (run == null)
+            {
+                return Ok(null);
+            }
+
+            if (run.UserId != user.Id)
             {
                 return BadRequest(_errorHandling.DataNotValid());
             }
