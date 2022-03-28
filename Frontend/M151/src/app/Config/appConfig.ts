@@ -5,4 +5,5 @@ export const appConfig = {
     REFRESH_TOKEN: 'm151-refresh-token',
     AUTHORIZATION: 'Authorization',
     BEARER: 'Bearer',
+    LANGUAGE: 'm151-language',
 }

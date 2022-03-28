@@ -1,0 +1,13 @@
+<div class="menu-items">
+    <ng-container *ngIf="routes$ | async as routes">
+        <button *ngFor="let route of routes" (click)="navigate(route.route.navigation)" type="button" mat-flat-button [color]="route.selected ? 'secondary' : 'primary'" >
+            {{ route.route.key | translate }}
+          </button>
+    </ng-container>
+    <mat-form-field>
+        <mat-label>{{ 'languages.languages' | translate }}</mat-label>
+        <mat-select [value]="getSelectedLanguage()" (selectionChange)="selectLanguage($event.value)">
+            <mat-option *ngFor="let lang of selectableLanguages" [value]="lang.key">{{ lang.value | translate }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
