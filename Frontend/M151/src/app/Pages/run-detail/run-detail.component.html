@@ -22,13 +22,16 @@
         <input matInput type="number" min="0" formControlName="altitude" [placeholder]="'runDetails.altitude' | translate" required>
         <span matSuffix>m</span>
     </mat-form-field>
+    <mat-error *ngIf="fileError">
+        {{ 'error.GpxFile_FileNotValid' | translate }}
+    </mat-error>
     <div class="fileUpload" *ngIf="!form.controls.gpxFile.disabled; else fileInfo">
         <mat-form-field>
             <ngx-mat-file-input [placeholder]="'runDetails.gpxFile' | translate" formControlName="gpxFile" accept=".gpx" (change)="fileChanged($event)">
             </ngx-mat-file-input>
             <mat-icon matSuffix aria-hidden="false">attach_file</mat-icon>
         </mat-form-field>
-        <button mat-flat-button color="secondary" type="submit" (click)="deleteFile()">
+        <button *ngIf="form.value.gpxFileId" mat-flat-button color="secondary" type="submit" (click)="deleteFile()">
             <mat-icon aria-hidden="false">delete</mat-icon>
         </button>
     </div>

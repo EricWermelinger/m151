@@ -56,7 +56,7 @@ export class RunDetailComponent {
     ).subscribe(run => {
       if (typeof(run) !== 'string' && run !== null) {
         this.form.patchValue(run);
-        this.setDisabled(true);
+        this.setDisabled(!!run.gpxFileId);
         this.isSet = true;
       }
       this.showSpinner = false;
@@ -180,14 +180,12 @@ export class RunDetailComponent {
         return;
       }
 
-      console.log(nodes);
       const gpxFile = {
         runId: this.id$.value,
         filename: file.name,
         nodes: nodes
       } as GpxFileDTO;
 
-      // todo find error in calculation
       this.api.callApi<RunDTO>(endpoints.GpxFile, gpxFile, 'POST').subscribe(run => {
         if (typeof(run) !== 'string') {
           this.form.patchValue(run);

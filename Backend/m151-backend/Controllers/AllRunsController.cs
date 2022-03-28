@@ -69,7 +69,16 @@ namespace m151_backend.Controllers
                 runs = runs.Where(run => nearRoutes.Contains(run.GpxFileId ?? Guid.Empty)).ToList();
             }
 
-            return Ok(runs);
+            return Ok(runs.Select(run => new RunDTO
+            {
+                Altitude = run.Altitude,
+                Duration = (run.Duration / 60),
+                GpxFileId = run.GpxFileId,
+                Id = run.Id,
+                Length = run.Length,
+                StartTime = run.StartTime,
+                Title = run.Title
+            }).ToList());
         }
     }
 }

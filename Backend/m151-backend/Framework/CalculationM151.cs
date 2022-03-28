@@ -6,12 +6,14 @@ namespace m151_backend.Framework
     {
         public decimal CalculateDistance(PointDTO pointA, PointDTO pointB)
         {
-            var r = 6371;
-            var lat = Math.Sin((double)(pointB.Latitude - pointA.Latitude) * 0.5);
-            var lon = Math.Sin((double)(pointB.Longitude - pointA.Longitude) * 0.5);
-            var q = Math.Pow(lat, 2) + Math.Cos((double)pointA.Latitude) * Math.Cos((double)pointB.Latitude) * Math.Pow(lon, 2);
-
-            return (decimal)(2 * r * Math.Asin(Math.Sqrt(q)));
+            decimal R = 6371;
+            var lat = Math.PI / 180 * (double)(pointB.Latitude - pointA.Latitude);
+            var lng = Math.PI / 180 * (double)(pointB.Longitude - pointA.Longitude);
+            var h1 = Math.Sin(lat / 2) * Math.Sin(lat / 2) +
+                     Math.Cos(Math.PI / 180 * (double)pointA.Latitude) * Math.Cos(Math.PI / 180 * (double)pointB.Latitude) *
+                     Math.Sin(lng / 2) * Math.Sin(lng / 2);
+            var h2 = 2 * Math.Asin(Math.Min(1, Math.Sqrt(h1)));
+            return R * (decimal)h2 * 1000;
         }
 
         public decimal CalculateRouteDistance(List<PointDTO> points)
