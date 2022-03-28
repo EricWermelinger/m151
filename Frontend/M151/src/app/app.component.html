@@ -3,5 +3,5 @@
 </div>
 
 <!-- todo move to navbar -->
-<button mat-flat-button color="primary" type="submit" (click)="selectLanguage('hi-IN')">Use Hindi</button>
-<button mat-flat-button color="primary" type="submit" (click)="selectLanguage('en-GB')">Use English</button>
+<button mat-flat-button color="primary" type="submit" (click)="selectLanguage('hi-IN')">{{ 'languages.hindi' | translate}}</button>
+<button mat-flat-button color="primary" type="submit" (click)="selectLanguage('en-GB')">{{ 'languages.english' | translate}}</button>

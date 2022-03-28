@@ -28,6 +28,10 @@
             <mat-option [value]="3">{{ 'userData.genderOther' | translate }}</mat-option>
         </mat-select>
     </mat-form-field>    
-    <button mat-flat-button color="primary" type="submit" (click)="save()" [disabled]="!form.valid">{{ 'framework.save' | translate }}</button>
-    <button mat-flat-button color="secondary" type="submit" (click)="cancel()">{{ 'framework.cancel' | translate }}</button>
+    <button mat-flat-button color="primary" type="submit" (click)="save()" [disabled]="!form.valid || !form.dirty">
+        <mat-icon aria-hidden="false">save</mat-icon>
+    </button>
+    <button mat-flat-button color="secondary" type="submit" (click)="cancel()" [disabled]="!form.dirty">
+        <mat-icon aria-hidden="false">close</mat-icon>
+    </button>
 </form>

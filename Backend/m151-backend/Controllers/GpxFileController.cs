@@ -73,14 +73,12 @@ namespace m151_backend.Controllers
             }
 
             var run = await _context.Runs.FindAsync(request.RunId);
-            if (run == null || run.UserId != user.Id)
+            
+            if (run != null && run.UserId != user.Id)
             {
-                return BadRequest(_errorHandling.ErrorNotFound());
+                return BadRequest(_errorHandling.DataNotValid());
             }
-
-            request.Filename = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + "_Upload.gpx";
-
-            if (request.Nodes.Count > 1)
+            if (request.Nodes.Count <= 1)
             {
                 return BadRequest(_errorHandling.GetCustomError(ErrorKeys.GpxFile_FileNotValid));
             }
@@ -129,11 +127,32 @@ namespace m151_backend.Controllers
                 Longitude = vnd.Longitude
             }).ToList();
 
-            run.Altitude = calculation.CalculateRouteAltitudeUp(validNodes.Select(vnd => vnd.Elevation).ToList());
-            run.Duration = (decimal)((validNodes.Last().Time - validNodes.First().Time).TotalSeconds);
-            run.GpxFileId = gpxFileId;
-            run.Length = calculation.CalculateRouteDistance(points);
-            run.StartTime = validNodes.First().Time;
+            if (run != null)
+            {
+                run.Altitude = calculation.CalculateRouteAltitudeUp(validNodes.Select(vnd => vnd.Elevation).ToList());
+                run.Duration = (decimal)((validNodes.Last().Time - validNodes.First().Time).TotalSeconds);
+                run.GpxFileId = gpxFileId;
+                run.Length = calculation.CalculateRouteDistance(points);
+                run.StartTime = validNodes.First().Time;
+                run.Title = request.Filename;
+            }
+            else
+            {
+                var newRun = new Run
+                {
+                    Altitude = calculation.CalculateRouteAltitudeUp(validNodes.Select(vnd => vnd.Elevation).ToList()),
+                    Duration = (decimal) ((validNodes.Last().Time - validNodes.First().Time).TotalSeconds),
+                    GpxFileId = gpxFileId,
+                    Length = calculation.CalculateRouteDistance(points),
+                    StartTime = validNodes.First().Time,
+                    Title = request.Filename,
+                    UserId = user.Id,
+                    Id = Guid.NewGuid()
+                };
+                _context.Runs.Add(newRun);
+                run = newRun;
+            }
+            
 
             await _context.SaveChangesAsync();
 

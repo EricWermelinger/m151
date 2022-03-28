@@ -14,6 +14,7 @@ export class AppComponent {
   ) { }
 
   // todo: move to navbar
+  // todo: fix translations
   selectLanguage(language: string) {
     this.translateService.use(language);
   }

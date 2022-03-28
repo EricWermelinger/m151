@@ -33,12 +33,17 @@ namespace m151_backend.Controllers
 
             var run = await _context.Runs.FindAsync(id);
 
-            if (run == null || run.UserId != user.Id)
+            if (run == null)
+            {
+                return Ok(null);
+            }
+
+            if (run.UserId != user.Id)
             {
                 return BadRequest(_errorHandling.DataNotValid());
             }
 
-            var notes = _context.RunNotes.Where(note => note.RunId == id)
+            var notes = await _context.RunNotes.Where(note => note.RunId == id)
                 .Select(note => new RunNoteDTO
                 {
                     Id = note.Id,
@@ -62,7 +67,12 @@ namespace m151_backend.Controllers
             var existingNote = await _context.RunNotes.FindAsync(request.Id);
             var run = await _context.Runs.FindAsync(request.RunId);
 
-            if (run == null || run.UserId != user.Id)
+            if (run == null)
+            {
+                return Ok(null);
+            }
+
+            if (run.UserId != user.Id)
             {
                 return BadRequest(_errorHandling.DataNotValid());
             }

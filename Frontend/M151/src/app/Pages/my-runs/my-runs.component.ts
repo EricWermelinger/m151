@@ -36,8 +36,4 @@ export class MyRunsComponent {
       this.myRuns$ = this.api.callApi<RunDTO[]>(endpoints.MyRuns, {}, 'GET') as Observable<RunDTO[]>;
     });
   }
-
-  gpxFile(gpxFileId: string) {
-    // todo file download
-  }
 }
