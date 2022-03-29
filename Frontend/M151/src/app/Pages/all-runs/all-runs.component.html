@@ -1,0 +1,34 @@
+<div class="filter">
+    <h1>{{ 'allRuns.allRuns' | translate }}</h1>
+    <div class="slider">
+        <div>{{ 'allRuns.filterLength' | translate }}</div>
+        <ngx-slider [(value)]="filter.lengthMin" [(highValue)]="filter.lengthMax" [options]="optionsLength" (userChangeEnd)="loadData()"></ngx-slider>    
+    </div>
+    <div class="slider">
+        <div>{{ 'allRuns.filterAltitude' | translate }}</div>
+        <ngx-slider [(value)]="filter.altitudeMin" [(highValue)]="filter.altitudeMax" [options]="optionsAltitude" (userChangeEnd)="loadData()"></ngx-slider>    
+    </div>
+    <div class="slider">
+        <div>{{ 'allRuns.awayFromCity' | translate }}</div>
+        <ngx-slider [(value)]="filter.radiusFromPoint" [options]="optionsRadius" (userChangeEnd)="loadData()"></ngx-slider>    
+    </div>
+     <mat-form-field>
+        <mat-label>{{ 'allRuns.city' | translate }}</mat-label>
+        <mat-select (selectionChange)="changeCity($event.value)" [value]="filter.city">
+            <mat-option *ngFor="let city of cities" [value]="city">{{ city.name }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<mat-card *ngFor="let run of runs">
+    <mat-card-title>{{ run.title }}</mat-card-title>
+    <mat-card-subtitle>{{ run.startTime | date :'short' }}</mat-card-subtitle>
+    <mat-card-content>
+        <p *ngIf="run.length">{{ 'runDetails.length' | translate }}: {{ run.length }}m</p>
+        <p *ngIf="run.duration">{{ 'runDetails.duration' | translate }}: {{ formatSeconds(run.duration) }}</p>
+        <p *ngIf="run.altitude">{{ 'runDetails.altitude' | translate }}: {{ run.altitude }}m</p>
+      </mat-card-content>
+    <mat-divider inset></mat-divider>
+    <mat-card-actions>
+      <!-- todo insert map here -->
+    </mat-card-actions>
+</mat-card>

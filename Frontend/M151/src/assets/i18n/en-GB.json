@@ -40,7 +40,11 @@
         "myRuns": "My Runs"
     },
     "allRuns": {
-        "allRuns":"All Runs"
+        "allRuns":"All Runs",
+        "filterLength":"Filter Length in Meters",
+        "filterAltitude":"Filter Altitude change Uphill",
+        "awayFromCity":"Meters away from city",
+        "city":"City"
     },
     "error":{
         "Login_WrongUser":"User doesn't exist",

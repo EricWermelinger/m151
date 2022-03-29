@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { appRoutes } from './Config/appRoutes';
 import { AppGuard } from './Framework/API/app.guard';
+import { AllRunsComponent } from './Pages/all-runs/all-runs.component';
 import { LoginComponent } from './Pages/login/login.component';
 import { MyRunsComponent } from './Pages/my-runs/my-runs.component';
 import { RegisterComponent } from './Pages/register/register.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: `${appRoutes.RunDetails}/:id`, component: RunDetailComponent, pathMatch: 'full' }
     ],
   },
+  { path: appRoutes.AllRuns, component: AllRunsComponent },
 ];
 
 @NgModule({

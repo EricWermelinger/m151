@@ -45,6 +45,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 
 const AllMaterialModules = [
   A11yModule,
@@ -96,6 +97,7 @@ const AllMaterialModules = [
   NgxMatTimepickerModule,
   NgxMatNativeDateModule,
   MaterialFileInputModule,
+  NgxSliderModule,
 ];
 
 @NgModule({

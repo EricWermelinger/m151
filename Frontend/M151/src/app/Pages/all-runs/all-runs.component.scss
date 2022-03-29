@@ -1,0 +1,10 @@
+mat-card {
+    margin-bottom: 20px;
+}
+
+.filter {
+    width: 500px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+}

@@ -41,6 +41,7 @@ export class AppComponent {
     return null;
   }
   // todo: fix translations
+  // todo: filter same routes
 }
 
 export const languages: KeyValue<string, string>[] = [
