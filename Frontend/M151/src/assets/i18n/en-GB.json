@@ -36,7 +36,15 @@
         "altitude":"Altitude Uphill",
         "gpxFile":"Gpx File",
         "note":"Note",
-        "deleteGpxFile": "Delete GPX File"
+        "deleteGpxFile": "Delete GPX File",
+        "myRuns": "My Runs"
+    },
+    "allRuns": {
+        "allRuns":"All Runs",
+        "filterLength":"Filter Length in Meters",
+        "filterAltitude":"Filter Altitude change Uphill",
+        "awayFromCity":"Meters away from city",
+        "city":"City"
     },
     "error":{
         "Login_WrongUser":"User doesn't exist",
@@ -46,7 +54,26 @@
         "GpxFile_FileNotValid":"Gpx File is not valid"
     },
     "languages":{
+        "languages":"Languages",
         "english":"English",
-        "hindi":"Hindi"
+        "arabic":"Arabic",
+        "chinese":"Chinese",
+        "danish":"Danish",
+        "dutch":"Dutch",
+        "finnish":"Finnish",
+        "french":"French",
+        "german":"German",
+        "hindi":"Hindi",
+        "italian":"Italian",
+        "japanese":"Japanese",
+        "korean":"Korean",
+        "polish":"Polish",
+        "portuguese":"Portuguese",
+        "russian":"Russian",
+        "spanish":"Spanish",
+        "swedish":"Swedish",
+        "thai":"Thai",
+        "turkish":"Turkish",
+        "vietnamese":"Vietnamese"
     }
 }

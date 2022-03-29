@@ -6,6 +6,7 @@ import { RunDTO } from 'src/app/DTOs/RunDTO';
 import { ApiService } from 'src/app/Framework/API/api.service';
 import { UUID } from 'angular2-uuid';
 import { Observable } from 'rxjs/internal/Observable';
+import { FormatSeconds } from 'src/app/Framework/Helpers/helpers';
 
 @Component({
   selector: 'app-my-runs',
@@ -33,7 +34,11 @@ export class MyRunsComponent {
 
   delete(runId: string) {
     this.api.callApi(endpoints.MyRuns, runId, 'DELETE').subscribe(_ => {
-      this.myRuns$ = this.api.callApi<RunDTO[]>(endpoints.MyRuns, {}, 'GET') as Observable<RunDTO[]>;
+      this.myRuns$ = this.api.callApi<RunDTO[]>(endpoints.MyRuns, null, 'GET') as Observable<RunDTO[]>;
     });
+  }
+
+  formatSeconds(seconds: number): string {
+    return FormatSeconds(seconds);
   }
 }

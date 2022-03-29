@@ -35,7 +35,7 @@ namespace m151_backend.Controllers
                 .Select(run => new RunDTO
                 {
                     Altitude = run.Altitude,
-                    Duration = (run.Duration / 60),
+                    Duration = run.Duration,
                     GpxFileId = run.GpxFileId,
                     Id = run.Id,
                     Length = run.Length,

@@ -31,7 +31,7 @@ export class UserDataComponent {
     }) as FormGroupTyped<UserDTO>;
 
     this.showSpinner = true;
-    this.api.callApi<UserDTO>(endpoints.UserData, {}, 'GET').subscribe(userData => {
+    this.api.callApi<UserDTO>(endpoints.UserData, null, 'GET').subscribe(userData => {
       if (typeof(userData) !== 'string') {
         this.form.patchValue(userData);
       }
@@ -50,7 +50,7 @@ export class UserDataComponent {
 
   cancel() {
     this.showSpinner = true;
-    this.api.callApi<UserDTO>(endpoints.UserData, {}, 'GET').subscribe(userData => {
+    this.api.callApi<UserDTO>(endpoints.UserData, null, 'GET').subscribe(userData => {
       if (typeof(userData) !== 'string') {
         this.form.patchValue(userData);
       }

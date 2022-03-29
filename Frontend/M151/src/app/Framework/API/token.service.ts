@@ -31,4 +31,12 @@ export class TokenService {
   removeRefreshToken() {
     localStorage.removeItem(appConfig.REFRESH_TOKEN);
   }
+
+  getSelectedLanguage() {
+    return localStorage.getItem(appConfig.LANGUAGE);
+  }
+
+  setSelectedLanguage(language: string) {
+    localStorage.setItem(appConfig.LANGUAGE, language);
+  }
 }

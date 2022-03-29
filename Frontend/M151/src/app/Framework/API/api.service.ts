@@ -14,7 +14,16 @@ export class ApiService {
 
   callApi<T>(endpoint: string, payload: any, method: HttpMethods) {
     const requestEndpoint = `${appConfig.API_URL}${endpoint}`;
-    const params = ((method === 'GET' || method === 'DELETE') && !!payload) ? new HttpParams().set('id', payload) : {};
+  
+    let params = {};
+    if ((method === 'GET' || method === 'DELETE') && !!payload) {
+      if (typeof payload === 'string') {
+        params = new HttpParams().set('id', payload);
+      } else if (Object.keys(payload).length > 1) {
+        params = payload;
+      }
+    }
+
     let request: any;
     switch (method) {
       case 'GET':

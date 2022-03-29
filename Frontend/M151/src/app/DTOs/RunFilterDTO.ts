@@ -3,7 +3,7 @@ export interface RunFilterDTO {
     lengthMax: number;
     altitudeMin: number;
     altitudeMax: number;
-    pointLatitude: number | null;
-    pointLongitude: number | null;
-    radiusFromPoint: number | null;
+    pointLatitude: number;
+    pointLongitude: number;
+    radiusFromPoint: number;
 }
