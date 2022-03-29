@@ -9,5 +9,6 @@
         public decimal PointLatitude { get; set;  }
         public decimal PointLongitude { get; set; }
         public decimal RadiusFromPoint { get; set; }
+        public bool DistinctRoutesOnly { get; set; }
     }
 }

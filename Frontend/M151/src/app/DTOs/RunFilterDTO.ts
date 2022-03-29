@@ -6,4 +6,5 @@ export interface RunFilterDTO {
     pointLatitude: number;
     pointLongitude: number;
     radiusFromPoint: number;
+    distinctRoutesOnly: boolean;
 }

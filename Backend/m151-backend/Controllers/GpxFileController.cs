@@ -147,7 +147,7 @@ namespace m151_backend.Controllers
                     StartTime = validNodes.First().Time,
                     Title = request.Filename,
                     UserId = user.Id,
-                    Id = Guid.NewGuid()
+                    Id = request.RunId
                 };
                 _context.Runs.Add(newRun);
                 run = newRun;

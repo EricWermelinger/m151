@@ -18,6 +18,7 @@
             <mat-option *ngFor="let city of cities" [value]="city">{{ city.name }}</mat-option>
         </mat-select>
     </mat-form-field>
+    <mat-checkbox [checked]="filter.distinctRoutesOnly" (change)="distinctRoutesOnlyChanged($event)">{{ 'allRuns.distinctRoutesOnly' | translate }}</mat-checkbox>
 </div>
 <mat-card *ngFor="let run of runs">
     <mat-card-title>{{ run.title }}</mat-card-title>
