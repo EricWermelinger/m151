@@ -46,7 +46,7 @@
         <mat-form-field>
             <input matInput type="text" formControlName="note" [placeholder]="'runDetails.note' | translate">
         </mat-form-field>
-        <button mat-flat-button color="secondary" type="submit" (click)="deleteNote(note.value.id)">
+        <button *ngIf="note.value.savedOnDb" mat-flat-button color="secondary" type="submit" (click)="deleteNote(note.value.id)">
             <mat-icon aria-hidden="false">delete</mat-icon>
         </button>
     </form>

@@ -107,7 +107,24 @@ namespace m151_backend.Controllers
             }
 
             _context.Runs.Remove(run);
+            if (run.GpxFileId != null)
+            {
+                var gpxFile = await _context.GpxFiles.FindAsync(run.GpxFileId);
+                if (gpxFile != null)
+                {
+                    _context.GpxFiles.Remove(gpxFile);
+                    var nodesToRemove = await _context.GpxNodes.Where(node => node.GpxFileId == id)
+                        .ToListAsync();
+                    _context.GpxNodes.RemoveRange(nodesToRemove);
+                }
+            }
+
+            var notesToRemove = await _context.RunNotes.Where(note => note.RunId == id)
+                .ToListAsync();
+            _context.RunNotes.RemoveRange(notesToRemove);
+
             await _context.SaveChangesAsync();
+            
             return Ok();
         }
     }

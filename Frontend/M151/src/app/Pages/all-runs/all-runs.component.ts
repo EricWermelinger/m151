@@ -2,6 +2,7 @@ import { Options } from '@angular-slider/ngx-slider';
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 import { endpoints } from 'src/app/Config/endpoints';
 import { RunDTO } from 'src/app/DTOs/RunDTO';
 import { RunFilterDTO } from 'src/app/DTOs/RunFilterDTO';
@@ -18,7 +19,7 @@ export class AllRunsComponent {
   runs: RunDTO[] = [];
   cities: City[] = [
     { name: 'Aarau', latitude: 47.39, longitude: 8.03 },
-    { name: 'Baden', latitude: 47.28, longitude: 8.18 },
+    { name: 'Baden', latitude: 47.48, longitude: 8.31 },
     { name: 'Basel', latitude: 47.57, longitude: 7.58 },
     { name: 'Bern', latitude: 46.94, longitude: 7.44 },
     { name: 'Biel/Bienne', latitude: 47.14, longitude: 7.25 },
@@ -41,7 +42,8 @@ export class AllRunsComponent {
     lengthMax: 100000,
     radiusFromPoint: 10000,
     pointLatitude: this.selectedCity.latitude,
-    pointLongitude: this.selectedCity.longitude
+    pointLongitude: this.selectedCity.longitude,
+    distinctRoutesOnly: true
   };
   optionsAltitude: Options = {
     floor: 0,
@@ -68,6 +70,11 @@ export class AllRunsComponent {
     this.loadData();
   };
 
+  distinctRoutesOnlyChanged(event: MatCheckboxChange) {
+    this.filter.distinctRoutesOnly = event.checked;
+    this.loadData();
+  }
+
   loadData(){
     const filterValue = this.filter;
     if (filterValue.lengthMax >= filterValue.lengthMin && filterValue.altitudeMax >= filterValue.altitudeMin && filterValue.radiusFromPoint >= 0
@@ -81,7 +88,8 @@ export class AllRunsComponent {
             .set('lengthMax', filterValue.lengthMax.toString())
             .set('radiusFromPoint', filterValue.radiusFromPoint.toString())
             .set('pointLatitude', filterValue.pointLatitude.toString())
-            .set('pointLongitude', filterValue.pointLongitude.toString())     
+            .set('pointLongitude', filterValue.pointLongitude.toString())
+            .set('distinctRoutesOnly', filterValue.distinctRoutesOnly.toString())     
           , 'GET').subscribe(runs => {
           if (typeof(runs) !== 'string') {
             this.runs = runs;

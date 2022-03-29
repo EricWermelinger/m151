@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UUID } from 'angular2-uuid';
@@ -24,7 +24,7 @@ export class RunDetailComponent {
   showSpinner = false;
   maxDate = new Date();
   minDate = new Date(1900, 0, 1);
-  notes$ = new BehaviorSubject<FormGroupTyped<RunNoteDTO>[]>([]);
+  notes$ = new BehaviorSubject<FormGroupTyped<RunNoteDTO & { savedOnDb: boolean }>[]>([]);
   isSet = false;
   fileError = false;
 
@@ -55,9 +55,9 @@ export class RunDetailComponent {
       switchMap(id => this.api.callApi<RunDTO>(endpoints.RunDetail, id, 'GET')),
     ).subscribe(run => {
       if (typeof(run) !== 'string' && run !== null) {
+        this.isSet = true;
         this.form.patchValue(run);
         this.setDisabled(!!run.gpxFileId);
-        this.isSet = true;
       }
       this.showSpinner = false;
     });
@@ -71,8 +71,9 @@ export class RunDetailComponent {
         const formGroups = notes.map(note => this.formBuilder.group({
           id: note.id,
           note: note.note,
-          runId: note.runId
-        }) as FormGroupTyped<RunNoteDTO>);
+          runId: note.runId,
+          savedOnDb: true
+        }) as FormGroupTyped<RunNoteDTO & { savedOnDb: boolean }>);
         this.notes$.next(formGroups);
         this.notes$.value.forEach(note => note.valueChanges.pipe(
           distinctUntilChanged(),
@@ -118,8 +119,9 @@ export class RunDetailComponent {
       const newFormGroup = this.formBuilder.group({
         id: UUID.UUID(),
         note: '',
-        runId 
-      }) as FormGroupTyped<RunNoteDTO>;
+        runId,
+        savedOnDb: false
+      }) as FormGroupTyped<RunNoteDTO & { savedOnDb: boolean }>;
       newFormGroup.valueChanges.pipe(
         distinctUntilChanged(),
         debounceTime(500),
@@ -132,6 +134,12 @@ export class RunDetailComponent {
 
   private saveNote(formValue: RunNoteDTO) {
     this.api.callApi(endpoints.Notes, formValue, 'POST').subscribe();
+    this.notes$.next(this.notes$.value.map(note => {
+      if (note.value.id === formValue.id) {
+        note.value.savedOnDb = true;
+      }
+      return note;
+    }) as FormGroupTyped<RunNoteDTO & { savedOnDb: boolean }>[]);
   }
 
   private handleNoteChange(noteValue: RunNoteDTO) {
@@ -188,6 +196,7 @@ export class RunDetailComponent {
 
       this.api.callApi<RunDTO>(endpoints.GpxFile, gpxFile, 'POST').subscribe(run => {
         if (typeof(run) !== 'string') {
+          this.isSet = true;
           this.form.patchValue(run);
           this.setDisabled(true);
           this.fileError = false;

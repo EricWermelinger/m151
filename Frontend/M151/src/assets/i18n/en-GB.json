@@ -44,7 +44,8 @@
         "filterLength":"Filter Length in Meters",
         "filterAltitude":"Filter Altitude change Uphill",
         "awayFromCity":"Meters away from city",
-        "city":"City"
+        "city":"City",
+        "distinctRoutesOnly":"Distinct routes only"
     },
     "error":{
         "Login_WrongUser":"User doesn't exist",

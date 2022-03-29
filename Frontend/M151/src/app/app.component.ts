@@ -41,7 +41,7 @@ export class AppComponent {
     return null;
   }
   // todo: fix translations
-  // todo: filter same routes
+  // todo: Portfolio 9. April
 }
 
 export const languages: KeyValue<string, string>[] = [

@@ -1,4 +1,5 @@
 ﻿using m151_backend.DTOs;
+using m151_backend.Entities;
 
 namespace m151_backend.Framework
 {
@@ -47,6 +48,40 @@ namespace m151_backend.Framework
             }
 
             return altitude;
+        }
+
+        public bool RoutesEqual(List<GpxNode> routeA, List<GpxNode> routeB)
+        {
+            return CompareRoutes(routeA, routeB) && CompareRoutes(routeB, routeA);            
+        }
+
+        private bool CompareRoutes(List<GpxNode> routeA, List<GpxNode> routeB)
+        {
+            // threshold -> every second, one point. -> At max 25km/h -> at most 7meters differed.
+            // by adding some margin, like take care of the other side of the street etc, threshold is set to 20m.
+            var THRESHOLD = 20;
+            foreach (var node in routeA)
+            {
+                var closeNodeExists = routeB
+                    .Select(n => CalculateDistance(
+                        new PointDTO
+                        {
+                            Latitude = node.Latitude,
+                            Longitude = node.Longitude
+                        },
+                        new PointDTO
+                        {
+                            Latitude = n.Latitude,
+                            Longitude = n.Longitude
+                        }))
+                    .Any(dist => dist < THRESHOLD);
+                if (!closeNodeExists)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
