@@ -30,6 +30,6 @@
       </mat-card-content>
     <mat-divider inset></mat-divider>
     <mat-card-actions>
-      <!-- todo insert map here -->
+      <app-maps *ngIf="run.gpxFileId" [gpxFileId]="run.gpxFileId"></app-maps>
     </mat-card-actions>
 </mat-card>
