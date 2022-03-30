@@ -15,7 +15,7 @@
           <button mat-button color="secondary" (click)="delete(run.id)">
             <mat-icon aria-hidden="false">delete</mat-icon>
           </button>
-          <!-- todo insert map here -->
+          <app-maps *ngIf="run.gpxFileId" [gpxFileId]="run.gpxFileId"></app-maps>
         </mat-card-actions>
       </mat-card>
 </ng-container>

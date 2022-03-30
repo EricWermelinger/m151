@@ -28,16 +28,11 @@ namespace m151_backend.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<GpxFileDTO>> GetDownloadGpxFile(Guid id)
         {
-            var user = await _userService.GetUser();
-            if (user == null)
-            {
-                return Unauthorized(_errorHandling.Unauthorized());
-            }
-
             var gpxFile = await _context.GpxFiles.FindAsync(id);
-            var run = await _context.Runs.Where(run => run.GpxFileId == id && run.UserId == user.Id).FirstOrDefaultAsync();
+            var run = await _context.Runs.Where(run => run.GpxFileId == id).FirstOrDefaultAsync();
             if (gpxFile == null || run == null)
             {
                 return BadRequest(_errorHandling.ErrorNotFound());

@@ -22,6 +22,7 @@
         <input matInput type="number" min="0" formControlName="altitude" [placeholder]="'runDetails.altitude' | translate" required>
         <span matSuffix>m</span>
     </mat-form-field>
+    <app-maps *ngIf="form.value.gpxFileId" [gpxFileId]="form.value.gpxFileId" class="map"></app-maps>
     <mat-error *ngIf="fileError">
         {{ 'error.GpxFile_FileNotValid' | translate }}
     </mat-error>

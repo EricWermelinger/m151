@@ -1,7 +1,7 @@
 form {
     display: grid;
     grid-template-columns: 1fr;
-    max-width: 200px;
+    max-width: 400px;
 }
 
 form.note {
@@ -22,4 +22,10 @@ form.note {
 .fileUpload {
     display: flex;
     flex-direction: row;
+}
+
+.map {
+    display: flex;
+    flex-direction: row;
+    width: 400px;
 }
