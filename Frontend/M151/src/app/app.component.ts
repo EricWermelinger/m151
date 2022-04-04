@@ -42,6 +42,14 @@ export class AppComponent {
   }
   // todo: fix translations
   // todo: Portfolio 9. April
+  // todo: DOKU:
+  // todo: tiers, welche Aufgabe
+  // todo: tiers, technologie
+  // todo: DB Ansteuerung, ORM
+  // todo: Mockups
+  // todo: Abnahmeprotokoll
+  // todo: Unit-Test
+  // todo: UI Test
 }
 
 export const languages: KeyValue<string, string>[] = [

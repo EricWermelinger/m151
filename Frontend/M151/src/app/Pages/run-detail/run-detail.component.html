@@ -14,10 +14,15 @@
         <input matInput type="number" min="1" formControlName="length" [placeholder]="'runDetails.length' | translate" required>
         <span matSuffix>m</span>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field *ngIf="form.controls.duration.enabled; else durationDisabled">
         <input matInput type="number" min="1" formControlName="duration" [placeholder]="'runDetails.duration' | translate" required>
-        <span matSuffix>min</span>
+        <span matSuffix>sec</span>
     </mat-form-field>
+    <ng-template #durationDisabled>
+        <mat-form-field>
+            <input matInput [value]="getDuration()" [placeholder]="'runDetails.duration' | translate" disabled required>
+        </mat-form-field>
+    </ng-template>
     <mat-form-field>
         <input matInput type="number" min="0" formControlName="altitude" [placeholder]="'runDetails.altitude' | translate" required>
         <span matSuffix>m</span>

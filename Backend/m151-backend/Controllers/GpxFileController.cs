@@ -184,6 +184,8 @@ namespace m151_backend.Controllers
             _context.GpxNodes.RemoveRange(nodesToRemove);
             _context.GpxFiles.Remove(gpxFile);
 
+            run.GpxFileId = null;
+
             _context.SaveChanges();
             return Ok();
         }
