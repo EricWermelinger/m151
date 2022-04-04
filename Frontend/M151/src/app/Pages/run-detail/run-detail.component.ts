@@ -10,6 +10,7 @@ import { GpxNodeDTO } from 'src/app/DTOs/GpxNodeDTO';
 import { RunDTO } from 'src/app/DTOs/RunDTO';
 import { RunNoteDTO } from 'src/app/DTOs/RunNoteDTO';
 import { ApiService } from 'src/app/Framework/API/api.service';
+import { FormatSeconds } from 'src/app/Framework/Helpers/helpers';
 import { FormGroupTyped } from 'src/app/Material/types';
 
 @Component({
@@ -89,8 +90,9 @@ export class RunDetailComponent {
     const id = this.id$.value;
     if (!!id) {
       this.showSpinner = true;
+      const formValue = this.form.value;
       this.api.callApi(endpoints.MyRuns, {
-        ...this.form.value,
+        ...formValue,
         id,
       }, 'POST').subscribe(_ => this.showSpinner = false);
     }
@@ -219,6 +221,10 @@ export class RunDetailComponent {
       this.setDisabled(false);
       this.form.controls.gpxFileId.patchValue(null);
     });
+  }
+
+  getDuration() {
+    return FormatSeconds(this.form.value.duration);
   }
 
   private setDisabled(disabled: boolean){

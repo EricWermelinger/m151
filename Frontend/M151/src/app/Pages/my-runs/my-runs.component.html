@@ -1,3 +1,4 @@
+<h1>{{ 'runDetails.myRuns' | translate }}</h1>
 <ng-container *ngIf="myRuns$ | async as runs">
     <mat-card *ngFor="let run of runs">
         <mat-card-title>{{ run.title }}</mat-card-title>

@@ -81,7 +81,7 @@ namespace m151_backend.Controllers
             runs = runs.Where(run => nearRoutes.Contains(run.GpxFileId ?? Guid.Empty))
                 .ToList();
 
-            if (request.DistinctRoutesOnly)
+            if (request.DistinctRoutesOnly && runs.Count >= 2)
             {
                 var runsWithNodes = runs
                     .Select(run => new
