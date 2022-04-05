@@ -40,11 +40,7 @@ export class AppComponent {
     }
     return null;
   }
-  // todo: fix translations
   // todo: Portfolio 9. April
-  // todo: tiers, welche Aufgabe
-  // todo: tiers, technologie
-  // todo: Abnahmeprotokoll
   // todo: UI Test
 }
 

@@ -122,6 +122,8 @@ namespace m151_backend.Controllers
                 Longitude = vnd.Longitude
             }).ToList();
 
+            var filename = request.Filename;
+            var title = filename.ToLower().EndsWith(".gpx") ? filename.Substring(0, filename.Length - 4) : filename;
             if (run != null)
             {
                 run.Altitude = calculation.CalculateRouteAltitudeUp(validNodes.Select(vnd => vnd.Elevation).ToList());
@@ -129,7 +131,7 @@ namespace m151_backend.Controllers
                 run.GpxFileId = gpxFileId;
                 run.Length = calculation.CalculateRouteDistance(points);
                 run.StartTime = validNodes.First().Time;
-                run.Title = request.Filename;
+                run.Title = title;
             }
             else
             {
@@ -140,7 +142,7 @@ namespace m151_backend.Controllers
                     GpxFileId = gpxFileId,
                     Length = calculation.CalculateRouteDistance(points),
                     StartTime = validNodes.First().Time,
-                    Title = request.Filename,
+                    Title = title,
                     UserId = user.Id,
                     Id = request.RunId
                 };

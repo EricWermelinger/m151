@@ -37,10 +37,10 @@ export class AllRunsComponent {
   filter: RunFilterDTO & {city: City} = {
     city: this.selectedCity,
     altitudeMin: 0,
-    altitudeMax: 1000,
+    altitudeMax: 10000,
     lengthMin: 0,
     lengthMax: 100000,
-    radiusFromPoint: 10000,
+    radiusFromPoint: 100000,
     pointLatitude: this.selectedCity.latitude,
     pointLongitude: this.selectedCity.longitude,
     distinctRoutesOnly: true

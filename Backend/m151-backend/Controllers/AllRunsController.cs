@@ -97,7 +97,9 @@ namespace m151_backend.Controllers
                     bool foundEqual = false;
                     for (int j = i + 1; j < runsWithNodes.Count; j++)
                     {
-                        if (_calculation.RoutesEqual(runsWithNodes.ElementAt(i).Nodes, runsWithNodes.ElementAt(j).Nodes))
+                        var runA = runsWithNodes.ElementAt(i);
+                        var runB = runsWithNodes.ElementAt(j);
+                        if (_calculation.RoutesEqual(runA.Nodes, runB.Nodes, runA.Run.Length, runB.Run.Length))
                         {
                             foundEqual = true;
                             break;
