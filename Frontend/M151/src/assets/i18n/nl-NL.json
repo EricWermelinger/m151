@@ -1,0 +1,80 @@
+{
+    "framework":{
+        "save":"Opslaan",
+        "cancel":"Annuleren",
+        "delete":"Wissen",
+        "edit":"Bewerken",
+        "add":"Toevoegen",
+        "back":"Terug"
+    },
+    "login":{
+        "login":"Inloggen",
+        "username":"Gebruikersnaam",
+        "password":"Wachtwoord",
+        "registerInstead":"Registreer in plaats daarvan",
+        "register":"Registreren",
+        "loginInstead":"Inloggen in plaats van"
+    },
+    "userData":{
+        "userData":"Gebruikersgegevens",
+        "firstname":"Voornaam",
+        "lastname":"Achternaam",
+        "weight":"Gewicht",
+        "height":"Lengte",
+        "birthdate":"Geboortedatum",
+        "gender":"Geslacht",
+        "genderMale":"Man",
+        "genderFemale":"Vrouwelijk",
+        "genderOther":"Andere"
+    },
+    "runDetails":{
+        "runDetails":"Loop Details",
+        "title":"Titel",
+        "startTime":"Begintijd",
+        "length":"Lengte",
+        "duration":"Duur",
+        "altitude":"Hoogte Uphill",
+        "gpxFile":"Gpx Bestand",
+        "note":"Opmerking",
+        "deleteGpxFile":"GPX bestand verwijderen",
+        "myRuns":"Mijn Runs"
+    },
+    "allRuns":{
+        "allRuns":"Alle Pistes",
+        "filterLength":"Filter Lengte in Meters",
+        "filterAltitude":"Filter Hoogte verandering Uphill",
+        "awayFromCity":"Meters verwijderd van de stad",
+        "city":"Stad",
+        "distinctRoutesOnly":"Alleen verschillende routes"
+    },
+    "error":{
+        "Login_WrongUser":"Gebruiker bestaat niet",
+        "Login_WrongPassword":"Wachtwoord komt niet overeen met de gebruikersnaam",
+        "Register_UsernameExists":"Gebruikersnaam reeds gebruikt",
+        "Refresh_UserNotFound":"Gebruiker niet gevonden",
+        "GpxFile_FileNotValid":"Gpx Bestand is niet geldig"
+    },
+    "languages":{
+        "languages":"Talen",
+        "english":"Engels",
+        "arabic":"Arabisch",
+        "chinese":"Chinees",
+        "danish":"Deens",
+        "dutch":"Nederlands",
+        "finnish":"Fins",
+        "french":"Frans",
+        "german":"Duits",
+        "hindi":"Hindi",
+        "italian":"Italiaans",
+        "japanese":"Japans",
+        "korean":"Koreaans",
+        "polish":"Pools",
+        "portuguese":"Portugees",
+        "russian":"Russisch",
+        "spanish":"Spaans",
+        "swedish":"Zweeds",
+        "thai":"Thais",
+        "turkish":"Turks",
+        "vietnamese":"Vietnamees"
+    }
+}

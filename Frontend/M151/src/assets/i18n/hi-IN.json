@@ -1,46 +1,80 @@
 {
-  "framework": {
-    "save": "सहेजें",
-    "cancel": "रद्द करें",
-    "delete": "हटाएं",
-    "edit": "संपादित करें",
-    "add": "जोड़ें",
-    "back": "वापस"
+  "framework":{
+      "save":"सहेजें",
+      "cancel":"रद्द करें",
+      "delete":"हटाएं",
+      "edit":"संपादित करें",
+      "add":"जोड़ें",
+      "back":"वापस"
   },
-  "login": {
-    "login": "लॉगिन",
-    "username": "उपयोगकर्ता नाम",
-    "password": "पासवर्ड",
-    "registerInstead": "इसके बजाय रजिस्टर करें",
-    "register": "रद्द करें0",
-    "loginInstead": "रद्द करें1"
+  "login":{
+      "login":"लॉग इन करें",
+      "username":"उपयोगकर्ता नाम",
+      "password":"कुंजिका",
+      "registerInstead":"इसके बजाय रजिस्टर करें",
+      "register":"रजिस्टर करें",
+      "loginInstead":"इसके बजाय लॉगिन करें"
   },
-  "userData": {
-    "userData": "रद्द करें2",
-    "firstname": "रद्द करें3",
-    "lastname": "रद्द करें4",
-    "weight": "रद्द करें5",
-    "height": "रद्द करें6",
-    "birthdate": "रद्द करें7",
-    "gender": "रद्द करें8",
-    "genderMale": "रद्द करें9",
-    "genderFemale": "हटाएं0",
-    "genderOther": "हटाएं1"
+  "userData":{
+      "userData":"उपयोगकर्ता का आधार - सामग्री",
+      "firstname":"पहला नाम",
+      "lastname":"अंतिम नाम",
+      "weight":"वज़न",
+      "height":"ऊंचाई",
+      "birthdate":"जन्म दिन",
+      "gender":"लिंग",
+      "genderMale":"पुरुष",
+      "genderFemale":"महिला",
+      "genderOther":"अन्य"
   },
-  "runDetails": {
-    "runDetails": "हटाएं2",
-    "title": "हटाएं3",
-    "startTime": "हटाएं4",
-    "length": "हटाएं5",
-    "duration": "हटाएं6",
-    "altitude": "हटाएं7",
-    "gpxFile": "हटाएं8"
+  "runDetails":{
+      "runDetails":"विवरण चलाएँ",
+      "title":"शीर्षक",
+      "startTime":"समय शुरू",
+      "length":"लंबाई",
+      "duration":"अवधि",
+      "altitude":"ऊंचाई ऊपर की ओर",
+      "gpxFile":"जीपीएक्स फ़ाइल",
+      "note":"ध्यान दें",
+      "deleteGpxFile":"GPX फ़ाइल हटाएं",
+      "myRuns":"मेरे रन"
   },
-  "error": {
-    "Login_WrongUser": "हटाएं9",
-    "Login_WrongPassword": "संपादित करें0",
-    "Register_UsernameExists": "संपादित करें1",
-    "Refresh_UserNotFound": "संपादित करें2",
-    "GpxFile_FileNotValid": "संपादित करें3"
+  "allRuns":{
+      "allRuns":"सभी रन",
+      "filterLength":"मीटर में फ़िल्टर लंबाई",
+      "filterAltitude":"फ़िल्टर ऊंचाई परिवर्तन ऊपर की ओर",
+      "awayFromCity":"शहर से मीटर दूर",
+      "city":"शहर",
+      "distinctRoutesOnly":"केवल विशिष्ट मार्ग"
+  },
+  "error":{
+      "Login_WrongUser":"उपयोगकर्ता मौजूद नहीं है",
+      "Login_WrongPassword":"पासवर्ड उपयोगकर्ता नाम से मेल नहीं खाता",
+      "Register_UsernameExists":"उपयोगकर्ता नाम पहले ही लिया जा चुका है",
+      "Refresh_UserNotFound":"उपयोगकर्ता नहीं मिला",
+      "GpxFile_FileNotValid":"जीपीएक्स फ़ाइल मान्य नहीं है"
+  },
+  "languages":{
+      "languages":"भाषाएं",
+      "english":"अंग्रेज़ी",
+      "arabic":"अरबी",
+      "chinese":"चीनी",
+      "danish":"दानिश",
+      "dutch":"डच",
+      "finnish":"फिनिश",
+      "french":"फ्रेंच",
+      "german":"जर्मन",
+      "hindi":"हिन्दी",
+      "italian":"इतालवी",
+      "japanese":"जापानी",
+      "korean":"कोरियाई",
+      "polish":"पोलिश",
+      "portuguese":"पुर्तगाली",
+      "russian":"रूसी",
+      "spanish":"स्पेनिश",
+      "swedish":"स्वीडिश",
+      "thai":"थाई",
+      "turkish":"तुर्की",
+      "vietnamese":"वियतनामी"
   }
 }

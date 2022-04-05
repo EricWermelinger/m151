@@ -1,0 +1,80 @@
+{
+    "framework":{
+        "save":"Spara",
+        "cancel":"Avbryt",
+        "delete":"Radera",
+        "edit":"Redigera",
+        "add":"Lägg till",
+        "back":"Tillbaka"
+    },
+    "login":{
+        "login":"Inloggning",
+        "username":"Användarnamn",
+        "password":"Lösenord",
+        "registerInstead":"Registrera dig istället",
+        "register":"Registrera",
+        "loginInstead":"Logga in istället"
+    },
+    "userData":{
+        "userData":"Användardata",
+        "firstname":"Förnamn",
+        "lastname":"Efternamn",
+        "weight":"Vikt",
+        "height":"höjd",
+        "birthdate":"Födelsedatum",
+        "gender":"Kön",
+        "genderMale":"Man",
+        "genderFemale":"kvinna",
+        "genderOther":"Annat"
+    },
+    "runDetails":{
+        "runDetails":"Uppgifter om körning",
+        "title":"Titel",
+        "startTime":"Starttid",
+        "length":"Längd",
+        "duration":"Varaktighet",
+        "altitude":"Höjd i uppförsbacke",
+        "gpxFile":"Gpx-fil",
+        "note":"Obs",
+        "deleteGpxFile":"Radera GPX-fil",
+        "myRuns":"Mina lopp"
+    },
+    "allRuns":{
+        "allRuns":"Alla körningar",
+        "filterLength":"Filterlängd i meter",
+        "filterAltitude":"Filtrera höjdändring i uppförsbacke",
+        "awayFromCity":"Meter från staden",
+        "city":"Stad",
+        "distinctRoutesOnly":"Endast distinkta sträckor"
+    },
+    "error":{
+        "Login_WrongUser":"Användaren finns inte",
+        "Login_WrongPassword":"Lösenordet matchar inte användarnamnet",
+        "Register_UsernameExists":"Användarnamnet är redan upptaget",
+        "Refresh_UserNotFound":"Användaren finns inte",
+        "GpxFile_FileNotValid":"Gpx-filen är inte giltig"
+    },
+    "languages":{
+        "languages":"Språk",
+        "english":"engelska",
+        "arabic":"arabiska",
+        "chinese":"Kinesiska",
+        "danish":"danska",
+        "dutch":"holländska",
+        "finnish":"finska",
+        "french":"franska",
+        "german":"tyska",
+        "hindi":"Hindi",
+        "italian":"italienska",
+        "japanese":"japanska",
+        "korean":"koreanska",
+        "polish":"polska",
+        "portuguese":"portugisiska",
+        "russian":"ryska",
+        "spanish":"spanska",
+        "swedish":"svenska",
+        "thai":"thailändska",
+        "turkish":"turkiska",
+        "vietnamese":"Vietnamesiska"
+    }
+}

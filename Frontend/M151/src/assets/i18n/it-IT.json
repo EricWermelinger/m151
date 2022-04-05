@@ -1,0 +1,80 @@
+{
+    "framework":{
+        "save":"Salva",
+        "cancel":"Annulla",
+        "delete":"Cancella",
+        "edit":"Modifica",
+        "add":"Aggiungi",
+        "back":"Indietro"
+    },
+    "login":{
+        "login":"Login",
+        "username":"Nome utente",
+        "password":"Password",
+        "registerInstead":"Registrati invece",
+        "register":"Registrati",
+        "loginInstead":"Accedi invece"
+    },
+    "userData":{
+        "userData":"Dati utente",
+        "firstname":"Firstname",
+        "lastname":"Cognome",
+        "weight":"Peso",
+        "height":"altezza",
+        "birthdate":"data di nascita",
+        "gender":"sesso",
+        "genderMale":"Maschio",
+        "genderFemale":"femmina",
+        "genderOther":"Altro"
+    },
+    "runDetails":{
+        "runDetails":"Dettagli della corsa",
+        "title":"Titolo",
+        "startTime":"Ora d'inizio",
+        "length":"Lunghezza",
+        "duration":"Durata",
+        "altitude":"Altitudine in salita",
+        "gpxFile":"File Gpx",
+        "note":"Nota",
+        "deleteGpxFile":"Cancellare il file GPX",
+        "myRuns":"Le mie corse"
+    },
+    "allRuns":{
+        "allRuns":"Tutte le corse",
+        "filterLength":"Filtrare la lunghezza in metri",
+        "filterAltitude":"Filtrare cambio di altitudine in salita",
+        "awayFromCity":"Metri dalla città",
+        "city":"Città",
+        "distinctRoutesOnly":"Solo percorsi distinti"
+    },
+    "error":{
+        "Login_WrongUser":"L'utente non esiste",
+        "Login_WrongPassword":"La password non corrisponde al nome utente",
+        "Register_UsernameExists":"Username già preso",
+        "Refresh_UserNotFound":"Utente non trovato",
+        "GpxFile_FileNotValid":"Gpx File is not valid"
+    },
+    "languages":{
+        "languages":"Lingue",
+        "english":"inglese",
+        "arabic":"Arabo",
+        "chinese":"cinese",
+        "danish":"danese",
+        "dutch":"olandese",
+        "finnish":"finlandese",
+        "french":"francese",
+        "german":"tedesco",
+        "hindi":"Hindi",
+        "italian":"italiano",
+        "japanese":"giapponese",
+        "korean":"coreano",
+        "polish":"polacco",
+        "portuguese":"portoghese",
+        "russian":"russo",
+        "spanish":"spagnolo",
+        "swedish":"svedese",
+        "thai":"thailandese",
+        "turkish":"turco",
+        "vietnamese":"Vietnamita"
+    }
+}

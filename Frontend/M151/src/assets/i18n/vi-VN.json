@@ -1,0 +1,80 @@
+{
+    "framework":{
+        "save":"Tiết kiệm",
+        "cancel":"Hủy bỏ",
+        "delete":"Xóa bỏ",
+        "edit":"Biên tập",
+        "add":"Thêm vào",
+        "back":"Trở lại"
+    },
+    "login":{
+        "login":"Đăng nhập",
+        "username":"Tên tài khoản",
+        "password":"Mật khẩu",
+        "registerInstead":"Đăng ký thay thế",
+        "register":"Đăng ký",
+        "loginInstead":"Đăng nhập thay thế"
+    },
+    "userData":{
+        "userData":"Dữ liệu người dùng",
+        "firstname":"Tên đầu tiên",
+        "lastname":"Họ",
+        "weight":"Trọng lượng",
+        "height":"Chiều cao",
+        "birthdate":"Ngày sinh",
+        "gender":"Giới tính",
+        "genderMale":"Nam giới",
+        "genderFemale":"Giống cái",
+        "genderOther":"Khác"
+    },
+    "runDetails":{
+        "runDetails":"Chạy chi tiết",
+        "title":"Chức vụ",
+        "startTime":"Thời gian bắt đầu",
+        "length":"Chiều dài",
+        "duration":"Khoảng thời gian",
+        "altitude":"Độ cao lên dốc",
+        "gpxFile":"Tệp Gpx",
+        "note":"Ghi chú",
+        "deleteGpxFile":"Xóa tệp GPX",
+        "myRuns":"Chạy của tôi"
+    },
+    "allRuns":{
+        "allRuns":"Tất cả các lần chạy",
+        "filterLength":"Chiều dài bộ lọc tính bằng mét",
+        "filterAltitude":"Thay đổi độ cao bộ lọc Lên dốc",
+        "awayFromCity":"Cách thành phố vài mét",
+        "city":"Thành phố",
+        "distinctRoutesOnly":"Chỉ các tuyến đường riêng biệt"
+    },
+    "error":{
+        "Login_WrongUser":"Người dùng không tồn tại",
+        "Login_WrongPassword":"Mật khẩu không khớp với tên người dùng",
+        "Register_UsernameExists":"Tên người dùng đã được sử dụng",
+        "Refresh_UserNotFound":"Không tìm thấy người dùng",
+        "GpxFile_FileNotValid":"Tệp Gpx không hợp lệ"
+    },
+    "languages":{
+        "languages":"Ngôn ngữ",
+        "english":"Tiếng Anh",
+        "arabic":"Tiếng Ả Rập",
+        "chinese":"Người Trung Quốc",
+        "danish":"Người Đan Mạch",
+        "dutch":"Tiếng Hà Lan",
+        "finnish":"Tiếng Phần Lan",
+        "french":"Người Pháp",
+        "german":"Tiếng Đức",
+        "hindi":"Tiếng Hindi",
+        "italian":"Người Ý",
+        "japanese":"Tiếng Nhật",
+        "korean":"Hàn Quốc",
+        "polish":"Đánh bóng",
+        "portuguese":"Tiếng Bồ Đào Nha",
+        "russian":"Tiếng Nga",
+        "spanish":"Người Tây Ban Nha",
+        "swedish":"Tiếng Thụy Điển",
+        "thai":"Thái",
+        "turkish":"Thổ Nhĩ Kỳ",
+        "vietnamese":"Tiếng Việt"
+    }
+}

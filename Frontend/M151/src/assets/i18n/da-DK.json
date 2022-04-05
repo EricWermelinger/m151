@@ -1,0 +1,80 @@
+{
+    "framework":{
+        "save":"Gem",
+        "cancel":"Annuller",
+        "delete":"Slet",
+        "edit":"Rediger",
+        "add":"Tilføj",
+        "back":"Tilbage"
+    },
+    "login":{
+        "login":"Login",
+        "username":"Brugernavn",
+        "password":"adgangskode",
+        "registerInstead":"Registrer i stedet",
+        "register":"Registrer",
+        "loginInstead":"Log ind i stedet"
+    },
+    "userData":{
+        "userData":"Brugerdata",
+        "firstname":"Fornavn",
+        "lastname":"Efternavn",
+        "weight":"Vægt",
+        "height":"Højde",
+        "birthdate":"fødselsdato",
+        "gender":"køn",
+        "genderMale":"mand",
+        "genderFemale":"kvinde",
+        "genderOther":"Andet"
+    },
+    "runDetails":{
+        "runDetails":"Kør detaljer",
+        "title":"Titel",
+        "startTime":"Starttidspunkt",
+        "length":"længde",
+        "duration":"varighed",
+        "altitude":"Højde op ad bakke",
+        "gpxFile":"Gpx-fil",
+        "note":"Bemærk",
+        "deleteGpxFile":"Slet GPX-fil",
+        "myRuns":"Mine ture"
+    },
+    "allRuns":{
+        "allRuns":"Alle kørsler",
+        "filterLength":"Filterlængde i meter",
+        "filterAltitude":"Filter Højdeændring op ad bakke",
+        "awayFromCity":"Meter væk fra byen",
+        "city":"By",
+        "distinctRoutesOnly":"Kun særskilte ruter"
+    },
+    "error":{
+        "Login_WrongUser":"Bruger findes ikke",
+        "Login_WrongPassword":"Adgangskode passer ikke til brugernavnet",
+        "Register_UsernameExists":"Brugernavnet er allerede optaget",
+        "Refresh_UserNotFound":"Bruger ikke fundet",
+        "GpxFile_FileNotValid":"Gpx-filen er ikke gyldig"
+    },
+    "languages":{
+        "languages":"Sprog",
+        "english":"engelsk",
+        "arabic":"arabisk",
+        "chinese":"kinesisk",
+        "danish":"dansk",
+        "dutch":"hollandsk",
+        "finnish":"finsk",
+        "french":"fransk",
+        "german":"tysk",
+        "hindi":"Hindi",
+        "italian":"italiensk",
+        "japanese":"japansk",
+        "korean":"koreansk",
+        "polish":"polsk",
+        "portuguese":"portugisisk",
+        "russian":"russisk",
+        "spanish":"spansk",
+        "swedish":"svensk",
+        "thai":"thailandsk",
+        "turkish":"tyrkisk",
+        "vietnamese":"vietnamesisk"
+    }
+}

@@ -1,0 +1,80 @@
+{
+    "framework":{
+        "save":"يحفظ",
+        "cancel":"يلغي",
+        "delete":"حذف",
+        "edit":"يحرر",
+        "add":"يضيف",
+        "back":"خلف"
+    },
+    "login":{
+        "login":"تسجيل الدخول",
+        "username":"اسم المستخدم",
+        "password":"كلمة المرور",
+        "registerInstead":"التسجيل بدلا من ذلك",
+        "register":"يسجل",
+        "loginInstead":"تسجيل الدخول بدلا من ذلك"
+    },
+    "userData":{
+        "userData":"بيانات المستخدم",
+        "firstname":"الاسم الأول",
+        "lastname":"الكنية",
+        "weight":"وزن",
+        "height":"ارتفاع",
+        "birthdate":"تاريخ الولادة",
+        "gender":"جنس",
+        "genderMale":"ذكر",
+        "genderFemale":"أنثى",
+        "genderOther":"آخر"
+    },
+    "runDetails":{
+        "runDetails":"تفاصيل التشغيل",
+        "title":"لقب",
+        "startTime":"وقت البدء",
+        "length":"طول",
+        "duration":"مدة",
+        "altitude":"ارتفاع شاقة",
+        "gpxFile":"ملف Gpx",
+        "note":"ملحوظة",
+        "deleteGpxFile":"حذف ملف GPX",
+        "myRuns":"تشغيلاتي"
+    },
+    "allRuns":{
+        "allRuns":"كل الأشواط",
+        "filterLength":"طول الفلتر بالمتر",
+        "filterAltitude":"تغيير ارتفاع عامل التصفية Uphill",
+        "awayFromCity":"على بعد أمتار من المدينة",
+        "city":"مدينة",
+        "distinctRoutesOnly":"طرق مميزة فقط"
+    },
+    "error":{
+        "Login_WrongUser":"المستخدم غير موجود",
+        "Login_WrongPassword":"كلمة المرور لا تتطابق مع اسم المستخدم",
+        "Register_UsernameExists":"الاسم مستخدم من قبل",
+        "Refresh_UserNotFound":"لم يتم العثور على المستخدم",
+        "GpxFile_FileNotValid":"ملف Gpx غير صالح"
+    },
+    "languages":{
+        "languages":"اللغات",
+        "english":"إنجليزي",
+        "arabic":"عربي",
+        "chinese":"صينى",
+        "danish":"دانماركي",
+        "dutch":"اللغة الهولندية",
+        "finnish":"الفنلندية",
+        "french":"الفرنسية",
+        "german":"ألمانية",
+        "hindi":"الهندية",
+        "italian":"إيطالي",
+        "japanese":"اليابانية",
+        "korean":"الكورية",
+        "polish":"تلميع",
+        "portuguese":"البرتغالية",
+        "russian":"الروسية",
+        "spanish":"الأسبانية",
+        "swedish":"السويدية",
+        "thai":"التايلاندية",
+        "turkish":"اللغة التركية",
+        "vietnamese":"فيتنامي"
+    }
+}

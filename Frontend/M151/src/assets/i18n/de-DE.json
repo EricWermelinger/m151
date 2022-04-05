@@ -1,17 +1,80 @@
 {
-    "login": {
-      "login": "Login",
-      "username": "Benutzername",
-      "password": "Passwort",
-      "registerInstead": "Stattdessen registrieren",
-      "register": "Registrieren",
-      "loginInstead": "Stattdessen anmelden"
-    },
-    "error": {
-      "Login_WrongUser": "Benutzer existiert nicht",
-      "Login_WrongPassword": "Passwort passt nicht zum Benutzernamen",
-      "Register_UsernameExists": "Benutzername bereits vergeben",
-      "Refresh_UserNotFound": "Benutzer nicht gefunden",
-      "GpxFile_FileNotValid": "GPX-Datei ist nicht valid"
-    }
+  "framework":{
+      "save":"Speichern",
+      "cancel":"Abbrechen",
+      "delete":"Löschen",
+      "edit":"Bearbeiten",
+      "add":"Hinzufügen",
+      "back":"Zurück"
+  },
+  "login":{
+      "login":"Anmelden",
+      "username":"Benutzername",
+      "password":"Kennwort",
+      "registerInstead":"Stattdessen registrieren",
+      "register":"Registrieren",
+      "loginInstead":"Anmelden statt"
+  },
+  "userData":{
+      "userData":"Benutzerdaten",
+      "firstname":"Vorname",
+      "lastname":"Nachname",
+      "weight":"Gewicht",
+      "height":"Größe",
+      "birthdate":"Geburtsdatum",
+      "gender":"Geschlecht",
+      "genderMale":"Männlich",
+      "genderFemale":"Weiblich",
+      "genderOther":"Sonstiges"
+  },
+  "runDetails":{
+      "runDetails":"Lauf-Details",
+      "title":"Titel",
+      "startTime":"Startzeit",
+      "length":"Länge",
+      "duration":"Dauer",
+      "altitude":"Höhe bergauf",
+      "gpxFile":"Gpx-Datei",
+      "note":"Anmerkung",
+      "deleteGpxFile":"GPX-Datei löschen",
+      "myRuns":"Meine Läufe"
+  },
+  "allRuns":{
+      "allRuns":"Alle Läufe",
+      "filterLength":"Länge in Meter filtern",
+      "filterAltitude":"Filter Höhenänderung bergauf",
+      "awayFromCity":"Meter von der Stadt entfernt",
+      "city":"Stadt",
+      "distinctRoutesOnly":"Nur einzelne Strecken"
+  },
+  "error":{
+      "Login_WrongUser":"Benutzer existiert nicht",
+      "Login_WrongPassword":"Passwort stimmt nicht mit dem Benutzernamen überein",
+      "Register_UsernameExists":"Benutzername ist bereits vergeben",
+      "Refresh_UserNotFound":"Benutzer nicht gefunden",
+      "GpxFile_FileNotValid":"Gpx-Datei ist nicht gültig"
+  },
+  "languages":{
+      "languages":"Sprachen",
+      "english":"Englisch",
+      "arabic":"Arabisch",
+      "chinese":"Chinesisch",
+      "danish":"Dänisch",
+      "dutch":"Niederländisch",
+      "finnish":"Finnisch",
+      "french":"Französisch",
+      "german":"Deutsch",
+      "hindi":"Hindi",
+      "italian":"Italienisch",
+      "japanese":"Japanisch",
+      "korean":"Koreanisch",
+      "polish":"Polnisch",
+      "portuguese":"Portugiesisch",
+      "russian":"Russisch",
+      "spanish":"Spanisch",
+      "swedish":"Schwedisch",
+      "thai":"Thailändisch",
+      "turkish":"Türkisch",
+      "vietnamese":"Vietnamesisch"
+  }
 }
