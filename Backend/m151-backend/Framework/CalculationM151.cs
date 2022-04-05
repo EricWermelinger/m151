@@ -63,8 +63,8 @@ namespace m151_backend.Framework
         private bool CompareRoutes(List<GpxNode> routeA, List<GpxNode> routeB)
         {
             // threshold -> every second, one point. -> At max 25km/h -> at most 7meters differed.
-            // by adding some margin, like take care of the other side of the street etc, threshold is set to 20m.
-            var THRESHOLD = 20;
+            // by adding some margin, like take care of the other side of the street etc, threshold is set to 30m.
+            var THRESHOLD = 30;
             foreach (var node in routeA)
             {
                 var closeNodeExists = routeB

@@ -1,13 +1,14 @@
 import { Options } from '@angular-slider/ngx-slider';
 import { HttpParams } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { endpoints } from 'src/app/Config/endpoints';
 import { RunDTO } from 'src/app/DTOs/RunDTO';
 import { RunFilterDTO } from 'src/app/DTOs/RunFilterDTO';
 import { ApiService } from 'src/app/Framework/API/api.service';
 import { FormatSeconds } from 'src/app/Framework/Helpers/helpers';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { MapMultiRoutesComponent, MapMultiRoutesComponentData } from '../map-multi-routes/map-multi-routes.component';
 
 @Component({
   selector: 'app-all-runs',
@@ -17,6 +18,7 @@ import { FormatSeconds } from 'src/app/Framework/Helpers/helpers';
 export class AllRunsComponent {
 
   runs: RunDTO[] = [];
+  fileIds: string[] | null = null;
   cities: City[] = [
     { name: 'Aarau', latitude: 47.39, longitude: 8.03 },
     { name: 'Baden', latitude: 47.48, longitude: 8.31 },
@@ -60,6 +62,7 @@ export class AllRunsComponent {
 
   constructor(
     private api: ApiService,
+    private matDialog: MatDialog,
   ) { 
     this.loadData();
   }
@@ -93,9 +96,24 @@ export class AllRunsComponent {
           , 'GET').subscribe(runs => {
           if (typeof(runs) !== 'string') {
             this.runs = runs;
+            const gpxFileIds = runs.map(run => run.gpxFileId).filter(fileId => !!fileId) as string[];
+            if (gpxFileIds.length > 0){
+              this.fileIds = gpxFileIds;
+            }
           }
         });
     }   
+  }
+
+  openModal() {
+    this.matDialog.open(MapMultiRoutesComponent, {
+      width: '1500px',
+      maxHeight: '90vh',
+      data: {
+        fileIds: this.fileIds
+      } as MapMultiRoutesComponentData,
+      autoFocus: false
+    });
   }
 
   formatSeconds(seconds: number): string {

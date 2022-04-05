@@ -33,3 +33,4 @@
       <app-maps *ngIf="run.gpxFileId" [gpxFileId]="run.gpxFileId"></app-maps>
     </mat-card-actions>
 </mat-card>
+<button mat-flat-button *ngIf="fileIds" color="primary" type="submit" (click)="openModal()">{{ 'allRuns.allRuns' | translate }}</button>
