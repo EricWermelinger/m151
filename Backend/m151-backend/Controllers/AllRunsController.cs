@@ -127,5 +127,20 @@ namespace m151_backend.Controllers
                 Title = run.Title
             }).ToList());
         }
+
+        [HttpPost]
+        public async Task<ActionResult<List<List<GpxNode>>>> RoutesByFileIds(GpxFileIdsDTO request)
+        {
+            var nodes = await _context.GpxNodes.Where(nod => request.FileIds!.Contains(nod.GpxFileId))
+                .ToListAsync();
+
+            var nodesGrpuped = request.FileIds.Select(fileId => 
+                    nodes.Where(node => node.GpxFileId == fileId)
+                        .OrderBy(node => node.OrderInFile)
+                        .ToList())
+                .ToList();
+
+            return Ok(nodesGrpuped);
+        }
     }
 }

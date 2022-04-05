@@ -20,6 +20,7 @@ import { RunDetailComponent } from './Pages/run-detail/run-detail.component';
 import { NavBarComponent } from './Pages/index/nav-bar.component';
 import { AllRunsComponent } from './Pages/all-runs/all-runs.component';
 import { MapsComponent } from './Pages/maps/maps.component';
+import { MapMultiRoutesComponent } from './Pages/map-multi-routes/map-multi-routes.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -38,6 +39,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NavBarComponent,
     AllRunsComponent,
     MapsComponent,
+    MapMultiRoutesComponent,
   ],
   imports: [
     BrowserModule,
