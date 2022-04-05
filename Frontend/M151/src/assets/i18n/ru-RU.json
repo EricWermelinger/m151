@@ -1,0 +1,80 @@
+{
+    "framework":{
+        "save":"Сохранить",
+        "cancel":"Отменить",
+        "delete":"Удалить",
+        "edit":"Редактировать",
+        "add":"Добавить",
+        "back":"Назад"
+    },
+    "login":{
+        "login":"Вход",
+        "username":"Имя пользователя",
+        "password":"Пароль",
+        "registerInstead":"Вместо этого зарегистрируйтесь",
+        "register":"Зарегистрироваться",
+        "loginInstead":"Войти вместо"
+    },
+    "userData":{
+        "userData":"Данные пользователя",
+        "firstname":"Имя",
+        "lastname":"Фамилия",
+        "weight":"Вес",
+        "height":"Рост",
+        "birthdate":"Дата рождения",
+        "gender":"Пол",
+        "genderMale":"Мужской",
+        "genderFemale":"женский",
+        "genderOther":"Другое"
+    },
+    "runDetails":{
+        "runDetails":"Детали выполнения",
+        "title":"Название",
+        "startTime":"Время начала",
+        "length":"Продолжительность",
+        "duration":"Продолжительность",
+        "altitude":"Высота над уровнем моря",
+        "gpxFile":"Gpx файл",
+        "note":"Примечание",
+        "deleteGpxFile":"Удалить файл GPX",
+        "myRuns":"Мои заезды"
+    },
+    "allRuns":{
+        "allRuns":"Все забеги",
+        "filterLength":"Фильтр Длина в метрах",
+        "filterAltitude":"Фильтр Изменение высоты в гору",
+        "awayFromCity":"Метры от города",
+        "city":"Город",
+        "distinctRoutesOnly":"Только разные маршруты"
+    },
+    "error":{
+        "Login_WrongUser":"Пользователь не существует",
+        "Login_WrongPassword":"Пароль не совпадает с именем пользователя",
+        "Register_UsernameExists":"Имя пользователя уже занято",
+        "Refresh_UserNotFound":"Пользователь не найден",
+        "GpxFile_FileNotValid":"Gpx-файл не действителен"
+    },
+    "languages":{
+        "languages":"Языки",
+        "english":"Английский",
+        "arabic":"арабский",
+        "chinese":"китайский",
+        "danish":"датский",
+        "dutch":"голландский",
+        "finnish":"финский",
+        "french":"французский",
+        "german":"немецкий",
+        "hindi":"хинди",
+        "italian":"итальянский",
+        "japanese":"японский",
+        "korean":"корейский",
+        "polish":"польский",
+        "portuguese":"португальский",
+        "russian":"русский",
+        "spanish":"испанский",
+        "swedish":"шведский",
+        "thai":"тайский",
+        "turkish":"турецкий",
+        "vietnamese":"вьетнамский"
+    }
+}

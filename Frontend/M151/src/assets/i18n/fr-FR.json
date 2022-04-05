@@ -1,17 +1,80 @@
 {
-    "login": {
-      "login": "Connexion",
-      "username": "Nom d'utilisateur",
-      "password": "Mot de passe",
-      "registerInstead": "S'inscrire à la place",
-      "register": "S'inscrire",
-      "loginInstead": "Se connecter à la place"
-    },
-    "error": {
-      "Login_WrongUser": "L'utilisateur n'existe pas",
-      "Login_WrongPassword": "Le mot de passe ne correspond pas au nom d'utilisateur",
-      "Register_UsernameExists": "Nom d'utilisateur déjà pris",
-      "Refresh_UserNotFound": "Utilisateur introuvable",
-      "GpxFile_FileNotValid": "Gpx File est invalide"
-    }
+  "framework":{
+      "save":"Sauvegarder",
+      "cancel":"Annuler",
+      "delete":"Supprimer",
+      "edit":"Modifier",
+      "add":"Ajouter",
+      "back":"Retour"
+  },
+  "login":{
+      "login":"Connexion",
+      "username":"Nom d'utilisateur",
+      "password":"mot de passe",
+      "registerInstead":"S'enregistrer à la place",
+      "register":"S'enregistrer",
+      "loginInstead":"Se connecter à la place"
+  },
+  "userData":{
+      "userData":"Données de l'utilisateur",
+      "firstname":"Prénom",
+      "lastname":"Nom de famille",
+      "weight":"Poids",
+      "height":"Taille",
+      "birthdate":"Date de naissance",
+      "gender":"Sexe",
+      "genderMale":"Homme",
+      "genderFemale":"Femme",
+      "genderOther":"Autre"
+  },
+  "runDetails":{
+      "runDetails":"Détails de l'exécution",
+      "title":"Titre",
+      "startTime":"Heure de début",
+      "length":"Durée",
+      "duration":"Durée",
+      "altitude":"Altitude en montée",
+      "gpxFile":"Fichier Gpx",
+      "note":"Note",
+      "deleteGpxFile":"Supprimer le fichier GPX",
+      "myRuns":"Mes courses"
+  },
+  "allRuns":{
+      "allRuns":"Tous les parcours",
+      "filterLength":"Filtrer la longueur en mètres",
+      "filterAltitude":"Filtrer le changement d'altitude en montée",
+      "awayFromCity":"Mètres d'éloignement de la ville",
+      "city":"Ville",
+      "distinctRoutesOnly":"Parcours distincts uniquement"
+  },
+  "error":{
+      "Login_WrongUser":"L'utilisateur n'existe pas",
+      "Login_WrongPassword":"Le mot de passe ne correspond pas au nom d'utilisateur",
+      "Register_UsernameExists":"Nom d'utilisateur déjà pris",
+      "Refresh_UserNotFound":"Utilisateur non trouvé",
+      "GpxFile_FileNotValid":"Le fichier Gpx n'est pas valide"
+  },
+  "languages":{
+      "languages":"Langues",
+      "english":"Anglais",
+      "arabic":"Arabe",
+      "chinese":"chinois",
+      "danish":"Danois",
+      "dutch":"Néerlandais",
+      "finnish":"finnois",
+      "french":"français",
+      "german":"allemand",
+      "hindi":"hindi",
+      "italian":"italien",
+      "japanese":"japonais",
+      "korean":"coréen",
+      "polish":"polonais",
+      "portuguese":"portugais",
+      "russian":"russe",
+      "spanish":"espagnol",
+      "swedish":"suédois",
+      "thai":"thaïlandais",
+      "turkish":"turc",
+      "vietnamese":"vietnamien"
+  }
 }

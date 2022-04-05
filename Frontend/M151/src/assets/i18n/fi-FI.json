@@ -1,0 +1,80 @@
+{
+    "framework":{
+        "save":"Tallenna",
+        "cancel":"Peruuta",
+        "delete":"Poista",
+        "edit":"Muokkaa",
+        "add":"Lisää",
+        "back":"Takaisin"
+    },
+    "login":{
+        "login":"Kirjaudu sisään",
+        "username":"Käyttäjätunnus",
+        "password":"Salasana",
+        "registerInstead":"Rekisteröidy sen sijaan",
+        "register":"Rekisteröidy",
+        "loginInstead":"Kirjaudu sisään sen sijaan"
+    },
+    "userData":{
+        "userData":"Käyttäjätiedot",
+        "firstname":"Etunimi",
+        "lastname":"Lastname",
+        "weight":"Paino",
+        "height":"Pituus",
+        "birthdate":"Syntymäaika",
+        "gender":"Sukupuoli",
+        "genderMale":"Mies",
+        "genderFemale":"Nainen",
+        "genderOther":"Muu"
+    },
+    "runDetails":{
+        "runDetails":"Juoksutiedot",
+        "title":"Otsikko",
+        "startTime":"Aloitusaika",
+        "length":"Pituus",
+        "duration":"Kesto",
+        "altitude":"Korkeus ylämäkeen",
+        "gpxFile":"Gpx-tiedosto",
+        "note":"Huom",
+        "deleteGpxFile":"Poista GPX-tiedosto",
+        "myRuns":"Omat juoksut"
+    },
+    "allRuns":{
+        "allRuns":"Kaikki ajot",
+        "filterLength":"Suodattimen pituus metreinä",
+        "filterAltitude":"Suodata korkeuden muutos ylämäkeen",
+        "awayFromCity":"Metrejä pois kaupungista",
+        "city":"Kaupunki",
+        "distinctRoutesOnly":"Vain erilliset reitit"
+    },
+    "error":{
+        "Login_WrongUser":"Käyttäjää ei ole olemassa",
+        "Login_WrongPassword":"Salasana ei vastaa käyttäjänimeä",
+        "Register_UsernameExists":"Käyttäjätunnus on jo varattu",
+        "Refresh_UserNotFound":"Käyttäjää ei löydy",
+        "GpxFile_FileNotValid":"Gpx-tiedosto ei ole kelvollinen"
+    },
+    "languages":{
+        "languages":"Kielet",
+        "english":"Finnish",
+        "arabic":"Arabia",
+        "chinese":"Kiina",
+        "danish":"tanska",
+        "dutch":"hollanti",
+        "finnish":"suomi",
+        "french":"ranska",
+        "german":"saksa",
+        "hindi":"Hindi",
+        "italian":"italia",
+        "japanese":"japani",
+        "korean":"koreaksi",
+        "polish":"Puolan kieli",
+        "portuguese":"portugali",
+        "russian":"Venäjä",
+        "spanish":"espanja",
+        "swedish":"ruotsi",
+        "thai":"thai",
+        "turkish":"turkki",
+        "vietnamese":"Vietnam"
+    }
+}

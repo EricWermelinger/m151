@@ -1,0 +1,80 @@
+{
+    "framework":{
+        "save":"Poupar",
+        "cancel":"Cancelar",
+        "delete":"Eliminar",
+        "edit":"Editar",
+        "add":"Acrescentar",
+        "back":"Voltar"
+    },
+    "login":{
+        "login":"Login",
+        "username":"Nome de utilizador",
+        "password":"Palavra-passe",
+        "registerInstead":"Registe-se em vez disso",
+        "register":"Registar",
+        "loginInstead":"Entrar em vez disso"
+    },
+    "userData":{
+        "userData":"Dados do utilizador",
+        "firstname":"Primeiro nome",
+        "lastname":"Último nome",
+        "weight":"Peso",
+        "height":"Altura",
+        "birthdate":"Data de nascimento",
+        "gender":"Género",
+        "genderMale":"Masculino",
+        "genderFemale":"Feminino",
+        "genderOther":"Outros"
+    },
+    "runDetails":{
+        "runDetails":"Executar Detalhes",
+        "title":"Título",
+        "startTime":"Hora de início",
+        "length":"Comprimento",
+        "duration":"Duração",
+        "altitude":"Altitude Uphill",
+        "gpxFile":"Ficheiro Gpx",
+        "note":"Nota",
+        "deleteGpxFile":"Apagar ficheiro GPX",
+        "myRuns":"As Minhas Corridas"
+    },
+    "allRuns":{
+        "allRuns":"Todas as execuções",
+        "filterLength":"Comprimento do filtro em contadores",
+        "filterAltitude":"Filtrar a mudança de altitude Uphill",
+        "awayFromCity":"Medidores fora da cidade",
+        "city":"Cidade",
+        "distinctRoutesOnly":"Apenas rotas distintas"
+    },
+    "error":{
+        "Login_WrongUser":"O utilizador não existe",
+        "Login_WrongPassword":"A palavra-passe não corresponde ao nome de utilizador",
+        "Register_UsernameExists":"Nome de utilizador já tomado",
+        "Refresh_UserNotFound":"Utilizador não encontrado",
+        "GpxFile_FileNotValid":"O ficheiro Gpx não é válido"
+    },
+    "languages":{
+        "languages":"Línguas",
+        "english":"Inglês",
+        "arabic":"árabe",
+        "chinese":"Chinês",
+        "danish":"Dinamarquês",
+        "dutch":"Holandês",
+        "finnish":"Finlandês",
+        "french":"Francês",
+        "german":"Alemão",
+        "hindi":"Hindi",
+        "italian":"Italiano",
+        "japanese":"Japonês",
+        "korean":"Coreano",
+        "polish":"Polaco",
+        "portuguese":"Português",
+        "russian":"Russo",
+        "spanish":"Espanhol",
+        "swedish":"Sueco",
+        "thai":"Tailandês",
+        "turkish":"Turco",
+        "vietnamese":"Vietnamita"
+    }
+}

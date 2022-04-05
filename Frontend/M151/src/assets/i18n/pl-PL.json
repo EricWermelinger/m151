@@ -1,0 +1,80 @@
+{
+    "framework":{
+        "save":"Zapisz",
+        "cancel":"Anuluj",
+        "delete":"Usuń",
+        "edit":"Edytuj",
+        "add":"Dodaj",
+        "back":"Wstecz"
+    },
+    "login":{
+        "login":"Login",
+        "username":"Nazwa użytkownika",
+        "password":"Hasło",
+        "registerInstead":"Zamiast tego zarejestruj się",
+        "register":"Zarejestruj się",
+        "loginInstead":"Zaloguj się zamiast"
+    },
+    "userData":{
+        "userData":"Dane użytkownika",
+        "firstname":"Imię",
+        "lastname":"Nazwisko",
+        "weight":"Waga",
+        "height":"Wzrost",
+        "birthdate":"Data urodzenia",
+        "gender":"Płeć",
+        "genderMale":"Mężczyzna",
+        "genderFemale":"Kobieta",
+        "genderOther":"Inne"
+    },
+    "runDetails":{
+        "runDetails":"Szczegóły biegu",
+        "title":"Tytuł",
+        "startTime":"Czas rozpoczęcia",
+        "length":"Długość",
+        "duration":"Czas trwania",
+        "altitude":"Wysokość nad poziomem morza",
+        "gpxFile":"Plik Gpx",
+        "note":"Uwaga",
+        "deleteGpxFile":"Usuń plik GPX",
+        "myRuns":"Moje biegi"
+    },
+    "allRuns":{
+        "allRuns":"Wszystkie biegi",
+        "filterLength":"Filtr Długość w metrach",
+        "filterAltitude":"Filtr Zmiana wysokości pod górę",
+        "awayFromCity":"Metry od miasta",
+        "city":"Miasto",
+        "distinctRoutesOnly":"Tylko odrębne trasy"
+    },
+    "error":{
+        "Login_WrongUser":"Użytkownik nie istnieje",
+        "Login_WrongPassword":"Hasło nie pasuje do nazwy użytkownika",
+        "Register_UsernameExists":"Nazwa użytkownika jest już zajęta",
+        "Refresh_UserNotFound":"Nie znaleziono użytkownika",
+        "GpxFile_FileNotValid":"Plik Gpx jest nieprawidłowy"
+    },
+    "languages":{
+        "languages":"Języki",
+        "english":"Angielski",
+        "arabic":"arabski",
+        "chinese":"chiński",
+        "danish":"duński",
+        "dutch":"niderlandzki",
+        "finnish":"fiński",
+        "french":"francuski",
+        "german":"niemiecki",
+        "hindi":"hindi",
+        "italian":"włoski",
+        "japanese":"japoński",
+        "korean":"koreański",
+        "polish":"polski",
+        "portuguese":"portugalski",
+        "russian":"rosyjski",
+        "spanish":"hiszpański",
+        "swedish":"szwedzki",
+        "thai":"tajski",
+        "turkish":"turecki",
+        "vietnamese":"wietnamski"
+    }
+}

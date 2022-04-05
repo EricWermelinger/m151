@@ -1,0 +1,80 @@
+{
+    "framework":{
+        "save":"Kayıt etmek",
+        "cancel":"İptal",
+        "delete":"Silmek",
+        "edit":"Düzenlemek",
+        "add":"Ekle",
+        "back":"Geri"
+    },
+    "login":{
+        "login":"Giriş yapmak",
+        "username":"Kullanıcı adı",
+        "password":"Şifre",
+        "registerInstead":"Bunun yerine kaydolun",
+        "register":"Kayıt ol",
+        "loginInstead":"Bunun yerine giriş yap"
+    },
+    "userData":{
+        "userData":"Kullanıcı bilgisi",
+        "firstname":"İlk adı",
+        "lastname":"Soyadı",
+        "weight":"Ağırlık",
+        "height":"Yükseklik",
+        "birthdate":"Doğum günü",
+        "gender":"Cinsiyet",
+        "genderMale":"Erkek",
+        "genderFemale":"Dişi",
+        "genderOther":"Diğer"
+    },
+    "runDetails":{
+        "runDetails":"Ayrıntıları Çalıştır",
+        "title":"Başlık",
+        "startTime":"Başlangıç ​​saati",
+        "length":"Uzunluk",
+        "duration":"Süre",
+        "altitude":"Rakım Yokuş Yukarı",
+        "gpxFile":"gpx Dosyası",
+        "note":"Not",
+        "deleteGpxFile":"GPX Dosyasını Sil",
+        "myRuns":"Koşularım"
+    },
+    "allRuns":{
+        "allRuns":"Tüm Çalışmalar",
+        "filterLength":"Metre Olarak Filtre Uzunluğu",
+        "filterAltitude":"Filtre İrtifa değişikliği Yokuş yukarı",
+        "awayFromCity":"Şehirden metrelerce uzakta",
+        "city":"Şehir",
+        "distinctRoutesOnly":"Yalnızca farklı rotalar"
+    },
+    "error":{
+        "Login_WrongUser":"Kullanıcı mevcut değil",
+        "Login_WrongPassword":"Şifre kullanıcı adıyla eşleşmiyor",
+        "Register_UsernameExists":"Kullanıcı adı önceden alınmış",
+        "Refresh_UserNotFound":"Kullanıcı bulunamadı",
+        "GpxFile_FileNotValid":"Gpx Dosyası geçerli değil"
+    },
+    "languages":{
+        "languages":"Diller",
+        "english":"İngilizce",
+        "arabic":"Arapça",
+        "chinese":"Çince",
+        "danish":"Danimarkalı",
+        "dutch":"Flemenkçe",
+        "finnish":"Fince",
+        "french":"Fransızca",
+        "german":"Almanca",
+        "hindi":"Hintçe",
+        "italian":"İtalyan",
+        "japanese":"Japonca",
+        "korean":"Koreli",
+        "polish":"Lehçe",
+        "portuguese":"Portekizce",
+        "russian":"Rusça",
+        "spanish":"İspanyol",
+        "swedish":"İsveççe",
+        "thai":"Tay",
+        "turkish":"Türk",
+        "vietnamese":"Vietnam"
+    }
+}
