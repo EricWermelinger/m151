@@ -4,6 +4,11 @@ namespace Students.Data
 {
     public class DataContext : DbContext
     {
+        public DataContext()
+        {
+            // used for unit-testing
+        }
+
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
             this.Database.EnsureCreated();
@@ -17,10 +22,10 @@ namespace Students.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<GpxFile> GpxFiles { get; set; }
-        public DbSet<GpxNode> GpxNodes { get; set; }
-        public DbSet<Run> Runs { get; set; }
-        public DbSet<RunNote> RunNotes { get; set; }
-        public DbSet<User> Users { get; set; }
+        public virtual DbSet<GpxFile> GpxFiles { get; set; }
+        public virtual DbSet<GpxNode> GpxNodes { get; set; }
+        public virtual DbSet<Run> Runs { get; set; }
+        public virtual DbSet<RunNote> RunNotes { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

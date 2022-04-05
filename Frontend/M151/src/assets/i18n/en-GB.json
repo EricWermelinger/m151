@@ -36,8 +36,8 @@
         "altitude":"Altitude Uphill",
         "gpxFile":"Gpx File",
         "note":"Note",
-        "deleteGpxFile": "Delete GPX File",
-        "myRuns": "My Runs"
+        "deleteGpxFile":"Delete GPX File",
+        "myRuns":"My Runs"
     },
     "allRuns": {
         "allRuns":"All Runs",

@@ -26,31 +26,51 @@ namespace m151_backend.Controllers
         [HttpPost]
         public async Task<ActionResult<TokenDTO>> LoginUser(LoginDTO request)
         {
-            if (request.Password == null || request.Username == null)
+            var users = await _context.Users.ToListAsync();
+            var error = LoginError(users, request);
+            if (error != null)
             {
-                return BadRequest(_errorHandling.DataNotValid());
+                switch (error)
+                {
+                    case "DataNotValid":
+                        return BadRequest(_errorHandling.DataNotValid());
+                    case "Login_WrongUser":
+                        return Ok(_errorHandling.GetCustomError(ErrorKeys.Login_WrongUser));
+                    case "Login_WrongPassword":
+                        return Ok(_errorHandling.GetCustomError(ErrorKeys.Login_WrongPassword));
+                }
             }
 
             var user = await _context.Users.FirstOrDefaultAsync(usr => usr.Username == request.Username);
-            if (user == null)
-            {
-                return Ok(_errorHandling.GetCustomError(ErrorKeys.Login_WrongUser));
-            }
-   
-            using var hmac = new HMACSHA512(user.PasswordSalt);
-            var computeHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
-            if (!computeHash.SequenceEqual(user.PasswordHash))
-            {
-                return Ok(_errorHandling.GetCustomError(ErrorKeys.Login_WrongPassword));
-            }
-
             var token = _authorization.CreateToken(user.Id);
-
             user.RefreshToken = token.RefreshToken;
             user.RefreshExpires = token.RefreshExpires;
             await _context.SaveChangesAsync();
 
             return Ok(token);
+        }
+
+        private string LoginError(List<User> users, LoginDTO request)
+        {
+            if (request.Password == null || request.Username == null)
+            {
+                return "DataNotValid";
+            }
+
+            var user = users.FirstOrDefault(usr => usr.Username == request.Username);
+            if (user == null)
+            {
+                return "Login_WrongUser";
+            }
+
+            using var hmac = new HMACSHA512(user.PasswordSalt);
+            var computeHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(request.Password));
+            if (!computeHash.SequenceEqual(user.PasswordHash))
+            {
+                return "Login_WrongPassword";
+            }
+
+            return null;
         }
     }
 }
