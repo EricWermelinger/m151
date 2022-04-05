@@ -50,8 +50,13 @@ namespace m151_backend.Framework
             return altitude;
         }
 
-        public bool RoutesEqual(List<GpxNode> routeA, List<GpxNode> routeB)
+        public bool RoutesEqual(List<GpxNode> routeA, List<GpxNode> routeB, decimal routeALength, decimal routeBlength)
         {
+            // check runs have less or more the same length
+            if (Math.Abs(routeALength - routeBlength) > 100)
+            {
+                return false;
+            }
             return CompareRoutes(routeA, routeB) && CompareRoutes(routeB, routeA);            
         }
 
