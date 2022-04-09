@@ -40,8 +40,6 @@ export class AppComponent {
     }
     return null;
   }
-  // todo: Portfolio 9. April
-  // todo: UI Test
 }
 
 export const languages: KeyValue<string, string>[] = [
